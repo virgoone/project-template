@@ -1,8 +1,8 @@
 {
-  "name": "vira-template-default",
+  "name": "react-template",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@git.llsapp.com:vira/frontend/vira-template-default.git",
-  "author": "xiangyu.luo<xiangyu.luo01@liulishuo.com>",
+  "repository": "git@github.com:virgoone/react-template.git",
+  "author": "me@virgo.one",
   "license": "MIT"
 }

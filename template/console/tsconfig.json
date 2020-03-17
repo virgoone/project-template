@@ -20,6 +20,6 @@
     "allowJs": true,
     "noEmit": true
   },
-  "include": ["src", "types", "*.ts", "*.tsx", "../console/src/pages/error"],
+  "include": ["src", "types", "*.ts", "*.tsx"],
   "exclude": ["node_modules", "public", "dist"]
 }

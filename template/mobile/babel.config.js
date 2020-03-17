@@ -3,7 +3,14 @@ module.exports = api => {
 
   return {
     plugins: [
-      
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "lib",
+          "style": "css"
+        },
+      ]
     ],
   }
 }

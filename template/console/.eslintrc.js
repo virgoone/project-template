@@ -15,6 +15,7 @@ module.exports = {
     'react/display-name': 0,
     'comma-dangle': ['error', 'always-multiline'],
     'no-control-regex': 0,
+    'import/prefer-default-export': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/camelcase': 0,
     '@typescript-eslint/no-var-requires': 0,

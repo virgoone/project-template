@@ -17,7 +17,7 @@
   "devDependencies": {
     "@commitlint/cli": "7.6.1",
     "@commitlint/config-conventional": "7.6.0",
-    "@virgoone/lark-cli-service": "1.0.1",
+    "@virgoone/lark-cli-service": "1.0.0",
     "@sentry/webpack-plugin": "1.7.0",
     "@types/lodash": "^4.14.144",
     "@types/react": "16.8.23",

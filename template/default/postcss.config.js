@@ -3,7 +3,7 @@ module.exports = {
     require('postcss-import'),
     require('autoprefixer'),
     {{#if mobile}}
-    'postcss-pxtorem': { rootValue: 37.5, propWhiteList: [] }
+    require('postcss-pxtorem')({ rootValue: 37.5, propWhiteList: [] })
     {{/if}}
   ]
 }

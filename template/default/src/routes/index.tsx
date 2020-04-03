@@ -4,6 +4,7 @@ import { RouteConfig } from 'react-router-config'
 import Loadable from '@/components/loadable'
 import PageFailed from '@/components/page-failed'
 import PageLoading from '@/components/page-loading'
+import { AjaxError } from '@/components/loadable/Loadable'
 
 function PageNotFound() {
   return <PageFailed code={404} message="ERR_NOT_FOUND" />
@@ -17,7 +18,9 @@ interface RouteInitOpts {
 function createRoute(path: string, options: RouteInitOpts = {}) {
   const { filePath = path, Loading = PageLoading } = options
   const Failed = PageFailed
-  const onError = () => {}
+  const onError = (err: AjaxError) => {
+    console.error(err)
+  }
 
   if (__DEV__) {
     console.log(`@/pages/${filePath.slice(1)}/page`)

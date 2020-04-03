@@ -6,7 +6,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>Index</title>
-    <% if (__APP_ENV__ === 'production') { %>
+    <% if (APP_ENV === 'production') { %>
       <link rel="preload" href="https://cdn.staticfile.org/react/16.13.0/umd/react.production.min.js" as="script" crossorigin>
       <link rel="preload" href="https://cdn.staticfile.org/react-dom/16.13.0/umd/react-dom.production.min.js" as="script" crossorigin>
     <% } %>
@@ -19,7 +19,7 @@
   <body>
     <div id="root"></div>
     <noscript>Sorry, we need js to run correctly!</noscript>
-    <% if(__APP_ENV__ === 'development') { %>
+    <% if(APP_ENV === 'development') { %>
       <script src="https://cdn.staticfile.org/react/16.13.0/umd/react.development.js"></script>
       <script src="https://cdn.staticfile.org/react-dom/16.13.0/umd/react-dom.development.js"></script>
       <script src="https://cdn.staticfile.org/mobx/5.15.4/mobx.js" crossorigin></script>

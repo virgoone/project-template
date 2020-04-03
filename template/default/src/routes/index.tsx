@@ -57,7 +57,7 @@ if (__DEV__) {
       path: '/',
       filePath: '/page',
       component: () =>
-        React.createElement(Loadable.resolveChunk(require('@/pages/page'))),
+        React.createElement(Loadable.resolveChunk(require('@/pages/index/page'))),
       exact: true,
     },
   ]

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import loadLottie from '@/utils/lottie'
 
-import './style'
+import './style.less'
 
 export default function PageLoading() {
   const lottieElement = useRef<HTMLDivElement>(null)

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import loadLottie from '@/utils/lottie'
-import './style'
+import './style.less'
 
 export interface PageFailedProps {
   code?: number

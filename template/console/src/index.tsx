@@ -8,7 +8,7 @@ window.__APP_LOADED__ = true
 const init = () => {
   const App = require('./App').default
 
-  ReactDOM.render(<App />, document.getElementById('App'))
+  ReactDOM.render(<App />, document.getElementById('root'))
 }
 
 if (__DEV__) {

@@ -61,6 +61,7 @@
     "prettier": "1.19.1",
     "raven-js": "3.27.0",
     "react-dev-utils": "9.0.1",
+    "styled-components": "5.0.1",
     "stylelint": "9.10.1",
     "stylelint-config-standard": "18.3.0",
     "terser-webpack-plugin": "1.2.4",

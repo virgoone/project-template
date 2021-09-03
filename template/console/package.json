@@ -51,7 +51,7 @@
     "jest": "24.8.0",
     "less": "3.9.0",
     "lint-staged": "8.1.7",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "lolex": "2.7.5",
     "penv.macro": "0.2.0",
     "postcss": "6.0.23",

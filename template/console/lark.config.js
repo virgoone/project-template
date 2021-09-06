@@ -21,26 +21,9 @@ module.exports = {
     // 可选，默认值从 package.json 中获取
     // APP_NAME,
 
-    // 可选，默认值从 faas 获取（https://${FAAS_CDN_HOST}/${FAAS_CDN_RESOURCE_KEY_PREFIX}）
+    // 可选
     // PUBLIC_PATH,
 
-    // 可选，默认值从 faas 获取（https://${FAAS_CDN_HOST_FALLBACK}/${FAAS_CDN_RESOURCE_KEY_PREFIX}）
-    // PUBLIC_PATH_FALLBACK,
-
-    // 可选，默认值 cc-ali.llscdn.com
-    // CDN_VENDOR_HOST,
-
-    // 可选，默认值 cc-b.llscdn.com
-    // CDN_VENDOR_HOST_FALLBACK,
-
-    // 可选，默认值 https://cc-ali.llscdn.com/vendor
-    // CDN_VENDOR_PUBLIC_URL,
-
-    // 可选，默认值通过 faas 获取（FAAS_CDN_HOST_FALLBACK）
-    // CDN_HOST_FALLBACK: FAAS_CDN_HOST_FALLBACK,
-
-    // 可选，默认值 cc-ali.llscdn.com
-    // CDN_HOST: FAAS_CDN_HOST,
   },
   paths: {
     // 可选，默认值 ./src/index.tsx

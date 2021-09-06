@@ -1,16 +1,5 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  extends: [
-    'prettier/react',
-    'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
-    'plugin:react/recommended',
-  ],
+  extends: 'lark',
   rules: {
     'react/display-name': 0,
     'comma-dangle': ['error', 'always-multiline'],
@@ -20,7 +9,7 @@ module.exports = {
     '@typescript-eslint/camelcase': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
-    "@typescript-eslint/no-non-null-assertion": 0,
+    '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
     'prettier/prettier': [
       'error',
@@ -31,16 +20,6 @@ module.exports = {
       },
     ],
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-    'import/resolver': {
-      'babel-module': {
-        extensions: ['.ts', '.tsx', '.jsx', '.js', '.less'],
-      },
-    },
-  },
   globals: {
     __DEV__: true,
     __webpack_public_path__: true,
@@ -49,5 +28,6 @@ module.exports = {
     SENTRY_DSN: true,
     APP_ENV: true,
     SENTRY_RELEASE: true,
+    VERSION: true,
   },
 }

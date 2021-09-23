@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from 'react'
-import loadLottie from '@/utils/lottie'
 import qs from 'query-string'
-import './style.less'
+import loadLottie from '@/utils/lottie'
+import './style.scss'
 
 export default function PageFailed() {
-  const { message = '', httpCode, code } = qs.parse(location.search)
+  const { message = '', httpCode, code } = qs.parse(window.location.search)
   let hint = '数据加载失败'
   const lottieElement = useRef<HTMLDivElement>(null)
 
@@ -17,13 +17,15 @@ export default function PageFailed() {
 
       const lottieAnimation = lottieWeb.loadAnimation({
         container: lottieElement.current,
+        // eslint-disable-next-line global-require
         animationData: require('./error-animation.json'),
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        name: 'entry',
+        name: 'entry'
       })
 
+      // eslint-disable-next-line consistent-return
       return () => {
         lottieAnimation.destroy()
       }

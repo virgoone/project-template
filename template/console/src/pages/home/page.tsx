@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
+import './style.scss'
 
-export default class HomePage extends React.PureComponent {
-  render() {
-    return <div className="home-page">home page</div>
-  }
-}
+const HomePage: FC = () => (
+    <div className="index-page">
+      <div className="title">
+        测试页面 page<span className="subtitle">测试subtitle</span>
+      </div>
+    </div>
+  )
+export default HomePage

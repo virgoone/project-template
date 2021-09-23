@@ -1,9 +1,8 @@
-@import "normalize.css";
-@import "./typeface";
+@import './typeface';
 
 html,
 body {
-  font-family: @font-family-base;
+  font-family: $font-family-base;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
@@ -68,8 +67,8 @@ ul {
 a,
 area,
 button,
-[role="button"],
-input:not([type=range]),
+[role='button'],
+input:not([type='range']),
 label,
 select,
 summary,

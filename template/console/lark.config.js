@@ -1,10 +1,8 @@
 module.exports = {
   variables: {
-    // 必选
-    SENTRY_DSN: undefined,
+    APP_TITLE: '[Lark]',
 
-    // 必选，网页标题
-    APP_TITLE: undefined,
+    SENTRY_DSN: undefined
 
     // 可选，start 时默认为 true，build 时默认为 false
     // __DEV__,
@@ -23,7 +21,6 @@ module.exports = {
 
     // 可选
     // PUBLIC_PATH,
-
   },
   paths: {
     // 可选，默认值 ./src/index.tsx
@@ -39,11 +36,8 @@ module.exports = {
     // 可选，默认值 ./package.json
     // appPackageJson,
   },
-  configureWebpack: config => {
+  configureWebpack: (config) => {
     // config 即为最终生成的 webpack config，若函数有返回值则与原 config 进行 webpack-merge
     // 可直接修改原 config，但不要返回任何内容
-    return {
-      plugins: [],
-    }
-  },
+  }
 }

@@ -1,7 +1,7 @@
-import '@/style/index.less'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import '@/style/index.less'
 
 window.__APP_LOADED__ = true
 

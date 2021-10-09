@@ -4,7 +4,7 @@ module.exports = {
     SENTRY_DSN: undefined,
 
     // 必选，网页标题
-    APP_TITLE: undefined,
+    APP_TITLE: '{{ title }}',
 
     // 可选，start 时默认为 true，build 时默认为 false
     // __DEV__,

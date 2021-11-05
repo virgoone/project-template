@@ -1,8 +1,0 @@
-{
-  "name": "react-template",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:virgoone/react-template.git",
-  "author": "me@virgo.one",
-  "license": "MIT"
-}

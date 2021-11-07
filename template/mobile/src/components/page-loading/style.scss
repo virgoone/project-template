@@ -1,0 +1,25 @@
+.page-loading {
+  &-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: #7c7a81;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &-lottie {
+    max-width: 300px;
+    min-height: 306px;
+  }
+}

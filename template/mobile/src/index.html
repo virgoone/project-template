@@ -33,7 +33,18 @@
 <body>
   <div id="root"></div>
   <noscript>Sorry, we need js to run correctly!</noscript>
+  <% if(APP_ENV !== 'production') {%>
+  <script src="https://cdn.staticfile.org/eruda/2.2.0/eruda.js"></script>
+  <script>
+    eruda.init();
+  </script>
+  <% } %>
+  {{/if}}
   <% if(APP_ENV === 'development') { %>
+  <!-- polyfill for webpack-dev-server -->
+  <script
+    src="https://cdn.polyfill.io/v2/polyfill.min.js?ua=Android%204.2&features=WeakMap,Object.setPrototypeOf,Object.assign">
+  </script>
   <script src="https://cdn.staticfile.org/react/16.13.0/umd/react.development.js"></script>
   <script src="https://cdn.staticfile.org/react-dom/16.13.0/umd/react-dom.development.js"></script>
   <% } else { %>

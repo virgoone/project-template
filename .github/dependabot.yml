@@ -1,0 +1,33 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: './template/console'
+    schedule:
+      interval: 'daily'
+      time: '08:00'
+      # Use ShangHai Standard Time (UTC +08:00)
+      timezone: 'Asia/Shanghai'
+  - package-ecosystem: "npm"
+    directory: './template/mobile'
+    schedule:
+      interval: 'daily'
+      time: '08:00'
+      # Use ShangHai Standard Time (UTC +08:00)
+      timezone: 'Asia/Shanghai'
+    open-pull-requests-limit: 10
+  - package-ecosystem: "npm"
+    directory: './template/default'
+    schedule:
+      interval: 'daily'
+      time: '08:00'
+      # Use ShangHai Standard Time (UTC +08:00)
+      timezone: 'Asia/Shanghai'
+    open-pull-requests-limit: 10
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '08:00'
+      # Use ShangHai Standard Time (UTC +08:00)
+      timezone: 'Asia/Shanghai'
+    open-pull-requests-limit: 10

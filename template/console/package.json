@@ -47,7 +47,7 @@
     "@types/react-router-dom": "^5.3.2",
     "@types/styled-components": "^5.1.15",
     "babel-plugin-macros": "^3.1.0",
-    "concurrently": "^6.3.0",
+    "concurrently": "^6.4.0",
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
@@ -61,8 +61,8 @@
     "penv.macro": "^0.4.0",
     "prettier": "^2.4.1",
     "styled-components": "^5.3.3",
-    "stylelint": "^14.0.1",
-    "stylelint-config-standard": "^23.0.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-standard": "^24.0.0",
     "typescript": "^4.4.4"
   },
   "lint-staged": {

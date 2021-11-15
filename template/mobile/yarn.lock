@@ -8583,13 +8583,6 @@ react-router-dom@6.0.2:
     history "^5.1.0"
     react-router "6.0.2"
 
-react-router@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.0.1.tgz#3fe93ad11f91fb55e242a42628414cb47219e652"
-  integrity sha512-O3iab52icFnQaHWONZr50CcjRlf3gx8CCjPQ0YxN8xEuEklRJNgoZSeoYFYz0fLvA4cpnhc306Nd8BYgL4QZrQ==
-  dependencies:
-    history "^5.1.0"
-
 react-router@6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.0.2.tgz#bd2b0fa84fd1d152671e9f654d9c0b1f5a7c86da"
@@ -9602,10 +9595,10 @@ stylelint-config-recommended@^6.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-6.0.0.tgz#fd2523a322836005ad9bf473d3e5534719c09f9d"
   integrity sha512-ZorSSdyMcxWpROYUvLEMm0vSZud2uB7tX1hzBZwvVY9SV/uly4AvvJPPhCcymZL3fcQhEQG5AELmrxWqtmzacw==
 
-stylelint-config-standard@23.0.0:
-  version "23.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-23.0.0.tgz#4ad58c74804c544cb4d30667c21a30ab14d1c17d"
-  integrity sha512-8PDlk+nWuc1T66nVaODTdVodN0pjuE5TBlopi39Lt9EM36YJsRhqttMyUhnS78oc/59Q6n8iw2GJB4QcoFqtRg==
+stylelint-config-standard@24.0.0:
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-24.0.0.tgz#6823f207ab997ae0b641f9a636d007cc44d77541"
+  integrity sha512-+RtU7fbNT+VlNbdXJvnjc3USNPZRiRVp/d2DxOF/vBDDTi0kH5RX2Ny6errdtZJH3boO+bmqIYEllEmok4jiuw==
   dependencies:
     stylelint-config-recommended "^6.0.0"
 

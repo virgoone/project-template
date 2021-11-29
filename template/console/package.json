@@ -23,7 +23,7 @@
     "axios": "^0.24.0",
     "history": "^5.1.0",
     "lottie-web": "^5.8.1",
-    "mobx": "^6.3.7",
+    "mobx": "^6.3.8",
     "mobx-react": "^7.2.1",
     "normalize.css": "^8.0.1",
     "query-string": "^7.0.1",

@@ -1,6 +1,11 @@
-steps:
-  - uses: actions/checkout@v2
-  - uses: ahmadnassri/action-dependabot-auto-merge@v2
-    with:
-      target: minor
-      github-token: ${{ secrets.GITHUB_TOKEN }}
+- match:
+    dependency_type: development
+    update_type: semver:minor # includes patch updates!
+
+- match:
+    dependency_type: production
+    update_type: security:minor # includes patch updates!
+
+- match:
+    dependency_type: production
+    update_type: semver:patch

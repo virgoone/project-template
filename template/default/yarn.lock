@@ -4255,10 +4255,10 @@ eslint-config-airbnb-base@^15.0.0:
     object.entries "^1.1.5"
     semver "^6.3.0"
 
-eslint-config-lark@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/eslint-config-lark/-/eslint-config-lark-0.1.6.tgz#dd1a543028d1d22e196478f75a5bd51dbb0393b0"
-  integrity sha512-z/n30cbBYXZzEnJ5wdQlDI8aBheUhLCk5+twFi/sWi/DeEgls/cdLWLpNdc7iUKnlPlagL39fZ1L7tKE6WiNgg==
+eslint-config-lark@0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/eslint-config-lark/-/eslint-config-lark-0.1.7.tgz#89bca476e4f920c358afc6a4ec2cdb720e817924"
+  integrity sha512-56iThlxJlpVRDmEVB0ZqdsQHNOBAPC1KLYV214ELCk1DWVvZU9Qtg3/rZRJo1tydwn2g+/hWGb+M0yYohYVSaQ==
   dependencies:
     "@emotion/eslint-plugin" "^11.2.0"
     "@typescript-eslint/eslint-plugin" "^5.3.0"

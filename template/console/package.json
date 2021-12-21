@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "antd": "^4.17.3",
+    "antd": "^4.17.4",
     "axios": "^0.24.0",
     "history": "^5.2.0",
     "lottie-web": "^5.8.1",

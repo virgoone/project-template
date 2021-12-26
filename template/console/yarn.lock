@@ -2027,10 +2027,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-router-config@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.npmjs.org/@types/react-router-config/-/react-router-config-5.0.3.tgz"
-  integrity sha512-38vpjXic0+E2sIBEKUe+RrCmbc8RqcQhNV8OmU3KUcwgy/yzTeo67MhllP+0zjZWNr7Lhw+RnUkL0hzkf63nUQ==
+"@types/react-router-config@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-router-config/-/react-router-config-5.0.4.tgz#fea3b063ed6b6b24f64efce323e5afba4b9b6e96"
+  integrity sha512-wJIRO2JcR/prphs4h7Fadx48vlqC3qMyTImqOLHkpwWCYBq9SnC+UAOBVZM4pCrzdIvUoXQy3b18+J6LXEKVpw==
   dependencies:
     "@types/history" "*"
     "@types/react" "*"

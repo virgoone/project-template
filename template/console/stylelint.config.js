@@ -6,6 +6,6 @@ module.exports = {
     'color-hex-length': null,
     'unit-case': null,
     'at-rule-empty-line-before': null,
-    'comment-word-blacklist': ['/^FIXME/i']
-  }
+    'comment-word-blacklist': ['/^FIXME/i'],
+  },
 }

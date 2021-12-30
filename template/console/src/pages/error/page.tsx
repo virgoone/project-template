@@ -22,7 +22,7 @@ export default function PageFailed() {
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        name: 'entry'
+        name: 'entry',
       })
 
       // eslint-disable-next-line consistent-return

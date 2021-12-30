@@ -22,24 +22,24 @@ setupMock({
       if (!userName) {
         return {
           status: 'error',
-          msg: '用户名不能为空'
+          msg: '用户名不能为空',
         }
       }
       if (!password) {
         return {
           status: 'error',
-          msg: '密码不能为空'
+          msg: '密码不能为空',
         }
       }
       if (userName === 'admin' && password === 'admin') {
         return {
-          status: 'ok'
+          status: 'ok',
         }
       }
       return {
         status: 'error',
-        msg: '账号或者密码错误'
+        msg: '账号或者密码错误',
       }
     })
-  }
+  },
 })

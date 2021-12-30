@@ -17,5 +17,5 @@ export default {
     'Copy succeeded, please paste to file src/settings.json.',
   'settings.close': 'Close',
   'settings.color.tooltip':
-    '10 gradient colors generated according to the theme color'
+    '10 gradient colors generated according to the theme color',
 }

@@ -1,14 +1,15 @@
 module.exports = {
   extends: 'lark',
   rules: {
+    semi: 0,
+    'compat/compat': 0,
     'react/display-name': 0,
-    'react/destructuring-assignment': 2,
     'import/no-unresolved': [
       2,
       {
-        ignore: ['^@/'] // @ 是设置的路径别名
-      }
-    ]
+        ignore: ['^@/'], // @ 是设置的路径别名
+      },
+    ],
   },
   globals: {
     __DEV__: true,
@@ -18,6 +19,6 @@ module.exports = {
     SENTRY_DSN: true,
     APP_ENV: true,
     SENTRY_RELEASE: true,
-    VERSION: true
-  }
+    VERSION: true,
+  },
 }

@@ -18,6 +18,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@arco-design/web-react": "^2.27.0",
     "@loadable/component": "^5.15.2",
     "axios": "^0.24.0",

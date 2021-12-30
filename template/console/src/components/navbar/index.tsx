@@ -7,7 +7,7 @@ import {
   Typography,
   Dropdown,
   Menu,
-  Space
+  Space,
 } from '@arco-design/web-react'
 import { IconSunFill, IconMoonFill } from '@arco-design/web-react/icon'
 import history from '@/globals/history'
@@ -56,14 +56,14 @@ function Navbar() {
           <Select
             options={[
               { label: '中文', value: 'zh-CN' },
-              { label: 'English', value: 'en-US' }
+              { label: 'English', value: 'en-US' },
             ]}
             value={localStorage.getItem('arco-lang')}
             bordered={false}
             triggerProps={{
               autoAlignPopupWidth: false,
               autoAlignPopupMinWidth: true,
-              position: 'bl'
+              position: 'bl',
             }}
             onChange={(value) => {
               localStorage.setItem('arco-lang', value)
@@ -85,7 +85,7 @@ function Navbar() {
               onClick={() =>
                 dispatch({
                   type: 'toggle-theme',
-                  payload: { theme: theme === 'light' ? 'dark' : 'light' }
+                  payload: { theme: theme === 'light' ? 'dark' : 'light' },
                 })
               }
               style={{ fontSize: 20 }}

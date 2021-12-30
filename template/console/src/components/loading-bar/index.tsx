@@ -28,7 +28,7 @@ function LoadingBar(_, ref) {
 
   useImperativeHandle(ref, () => ({
     loading,
-    success
+    success,
   }))
 
   return !hide ? (

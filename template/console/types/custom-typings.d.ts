@@ -34,16 +34,16 @@ declare module '*.less' {
   export default classes
 }
 declare module '*.less?modules' {
-  const classes: { [className: string]: string };
-  export default classes;
+  const classes: { [className: string]: string }
+  export default classes
 }
 declare module '*.scss' {
   const classes: { [className: string]: string }
   export default classes
 }
 declare module '*.scss?modules' {
-  const classes: { [className: string]: string };
-  export default classes;
+  const classes: { [className: string]: string }
+  export default classes
 }
 
 declare module '*/settings.json' {

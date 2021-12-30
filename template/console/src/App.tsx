@@ -1,6 +1,3 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable max-classes-per-file */
-
 import React, { PureComponent, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { observer, Provider } from 'mobx-react'

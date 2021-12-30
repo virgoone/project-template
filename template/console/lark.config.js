@@ -2,7 +2,7 @@ module.exports = {
   variables: {
     APP_TITLE: '[Lark]',
 
-    SENTRY_DSN: undefined
+    SENTRY_DSN: undefined,
 
     // 可选，start 时默认为 true，build 时默认为 false
     // __DEV__,
@@ -39,5 +39,5 @@ module.exports = {
   configureWebpack: (config) => {
     // config 即为最终生成的 webpack config，若函数有返回值则与原 config 进行 webpack-merge
     // 可直接修改原 config，但不要返回任何内容
-  }
+  },
 }

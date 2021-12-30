@@ -12,14 +12,14 @@ const routerConfig: RouteConf[] = [
   {
     key: 'Home',
     path: '/',
-    component: 'home'
-  }
+    component: 'home',
+  },
 ]
 
 export function generateRoute(routes: RouteConf[]): RouteConf[] {
   return map(routes, (val: RouteConf) => ({
     ...val,
-    component: lazy(() => import(`@/pages/${val.component}/page.tsx`))
+    component: lazy(() => import(`@/pages/${val.component}/page.tsx`)),
   }))
 }
 

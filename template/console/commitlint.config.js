@@ -9,6 +9,6 @@ module.exports = {
     // 允许中文
     'scope-case': [0],
     'subject-case': [0],
-    'header-max-length': [2, 'always', 108]
-  }
+    'header-max-length': [2, 'always', 108],
+  },
 }

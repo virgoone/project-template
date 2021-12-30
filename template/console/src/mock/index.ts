@@ -4,5 +4,5 @@ import './user'
 import './policy'
 
 Mock.setup({
-  timeout: '200-600'
+  timeout: '200-600',
 })

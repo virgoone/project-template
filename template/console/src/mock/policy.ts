@@ -14,9 +14,9 @@ const data = Mock.mock({
       'statistic|1-4': /[1-9]/,
       status: Random.pick(['success', 'pending', 'failed']),
       createdTime: Random.datetime(),
-      deadline: Random.datetime()
-    }
-  ]
+      deadline: Random.datetime(),
+    },
+  ],
 })
 
 setupMock({
@@ -28,8 +28,8 @@ setupMock({
 
       return {
         list: data.list.slice((p - 1) * ps, p * ps),
-        total: 55
+        total: 55,
       }
     })
-  }
+  },
 })

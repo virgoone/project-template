@@ -1,8 +1,8 @@
 import React, { useRef, useState, forwardRef, useImperativeHandle } from 'react'
 import { Progress } from '@arco-design/web-react'
 
-function LoadingBar(_, ref) {
-  const loadingTimer = useRef(null)
+function LoadingBar(_: any, ref: any) {
+  const loadingTimer = useRef<NodeJS.Timer>()
 
   const [percent, setPercent] = useState<number>(30)
   const [hide, setHide] = useState<boolean>(true)
@@ -18,7 +18,8 @@ function LoadingBar(_, ref) {
   }
 
   function success() {
-    clearInterval(loadingTimer.current)
+    // eslint-disable-next-line no-unused-expressions
+    loadingTimer.current && clearInterval(loadingTimer.current)
     setPercent(100)
 
     setTimeout(() => {

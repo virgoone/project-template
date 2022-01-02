@@ -13,7 +13,7 @@ import { IconSunFill, IconMoonFill } from '@arco-design/web-react/icon'
 import history from '@/globals/history'
 import { useSelector, useDispatch } from 'react-redux'
 import { ReducerState } from '../../redux'
-import useLocale from '../../utils/useLocale'
+import useLocale from '../../hooks/useLocale'
 import Logo from '../../assets/logo.svg'
 
 import styles from './style.scss?modules'

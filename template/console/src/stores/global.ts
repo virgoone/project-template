@@ -35,5 +35,7 @@ class GlobalStore {
     this.settings = { ...defaultSettings, ...settings }
   }
 }
-// eslint-disable-next-line import/prefer-default-export
-export const store = new GlobalStore()
+
+export const globalStore = new GlobalStore()
+
+export default globalStore

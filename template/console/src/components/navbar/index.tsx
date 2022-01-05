@@ -10,19 +10,23 @@ import {
   Space,
 } from '@arco-design/web-react'
 import { IconSunFill, IconMoonFill } from '@arco-design/web-react/icon'
+import { observer, useLocalStore } from 'mobx-react'
+import { globalStore } from '@/stores/global'
+import useLocale from '@/hooks/useLocale'
 import history from '@/globals/history'
-import { useSelector, useDispatch } from 'react-redux'
-import { ReducerState } from '../../redux'
-import useLocale from '../../hooks/useLocale'
-import Logo from '../../assets/logo.svg'
+import { ReactComponent as Logo } from '../../assets/logo.svg'
 
 import styles from './style.scss?modules'
 
 function Navbar() {
   const locale = useLocale()
-  const theme = useSelector((state: ReducerState) => state.global.theme)
-  const userInfo = useSelector((state: ReducerState) => state.global.userInfo)
-  const dispatch = useDispatch()
+  const store = useLocalStore(() => globalStore)
+  const { theme, changeTheme } = store
+  const userInfo = {
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+    name: 'Arco Pro',
+  }
 
   function logout() {
     localStorage.setItem('userStatus', 'logout')
@@ -58,7 +62,7 @@ function Navbar() {
               { label: '中文', value: 'zh-CN' },
               { label: 'English', value: 'en-US' },
             ]}
-            value={localStorage.getItem('arco-lang')}
+            value={localStorage.getItem('arco-lang') || 'zh-CN'}
             bordered={false}
             triggerProps={{
               autoAlignPopupWidth: false,
@@ -82,17 +86,12 @@ function Navbar() {
             <Button
               type="text"
               icon={theme === 'light' ? <IconMoonFill /> : <IconSunFill />}
-              onClick={() =>
-                dispatch({
-                  type: 'toggle-theme',
-                  payload: { theme: theme === 'light' ? 'dark' : 'light' },
-                })
-              }
+              onClick={() => changeTheme(theme === 'light' ? 'dark' : 'light')}
               style={{ fontSize: 20 }}
             />
           </Tooltip>
         </li>
-        {userInfo && (
+        {userInfo?.avatar && (
           <li>
             <Avatar size={24} style={{ marginRight: 8 }}>
               <img alt="avatar" src={userInfo.avatar} />
@@ -116,4 +115,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default observer(() => <Navbar />)

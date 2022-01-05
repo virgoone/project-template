@@ -2,9 +2,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     "jsx": "react",
+    "skipLibCheck": true,
     "noImplicitAny": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
@@ -18,8 +21,19 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "incremental": true,
+    "declarationMap": false
   },
-  "include": ["src", "types", "*.ts", "*.tsx"],
-  "exclude": ["node_modules", "public", "dist"]
+  "include": [
+    "src",
+    "types",
+    "*.ts",
+    "*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "public",
+    "dist"
+  ]
 }

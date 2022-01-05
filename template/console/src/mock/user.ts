@@ -17,7 +17,7 @@ setupMock({
     })
 
     // 登录
-    Mock.mock(new RegExp('/api/user/login'), (params) => {
+    Mock.mock(new RegExp('/api/user/login'), (params: Record<string, any>) => {
       const { userName, password } = JSON.parse(params.body)
       if (!userName) {
         return {

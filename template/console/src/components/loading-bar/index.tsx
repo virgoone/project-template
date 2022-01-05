@@ -1,6 +1,10 @@
 import React, { useRef, useState, forwardRef, useImperativeHandle } from 'react'
 import { Progress } from '@arco-design/web-react'
 
+export type LoadingBarHandle = {
+  success: () => void
+  loading: () => void
+}
 function LoadingBar(_: any, ref: any) {
   const loadingTimer = useRef<NodeJS.Timer>()
 

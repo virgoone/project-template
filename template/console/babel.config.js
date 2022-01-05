@@ -1,6 +1,4 @@
 module.exports = (api) => {
-  api.cache(true)
-
   return {
     plugins: [
       [
@@ -11,6 +9,7 @@ module.exports = (api) => {
           camel2DashComponentName: false,
           style: true, // 样式按需加载
         },
+        '@arco-design/web-react',
       ],
       [
         'babel-plugin-import',
@@ -19,6 +18,7 @@ module.exports = (api) => {
           libraryDirectory: 'react-icon',
           camel2DashComponentName: false,
         },
+        '@arco-design/web-react/icon',
       ],
     ],
   }

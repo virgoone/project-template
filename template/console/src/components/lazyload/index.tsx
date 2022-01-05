@@ -1,10 +1,10 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import { Spin } from '@arco-design/web-react'
-import styles from '../layout/style/layout.module.less'
+import styles from '@/layout/style.scss?modules'
 
 // https://github.com/gregberge/loadable-components/pull/226
-function load(fn, options) {
+function load(fn: any, options: any) {
   const Component = loadable(fn, options)
 
   Component.preload = fn.requireAsync || fn
@@ -12,7 +12,11 @@ function load(fn, options) {
   return Component
 }
 
-function LoadingComponent(props) {
+function LoadingComponent(props: {
+  pastDelay?: boolean
+  timedOut?: boolean
+  error?: string | boolean
+}) {
   if (props.error) {
     console.error(props.error)
     return null
@@ -24,7 +28,7 @@ function LoadingComponent(props) {
   )
 }
 
-export default (loader) =>
+export default (loader: any) =>
   load(loader, {
     fallback: LoadingComponent({
       pastDelay: true,

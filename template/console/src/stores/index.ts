@@ -1,1 +1,7 @@
-export * from './global'
+import global from './global'
+
+const stores = {
+  global,
+}
+
+export default stores

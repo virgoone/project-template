@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx'
+import { makeAutoObservable } from 'mobx'
 import defaultSettings from '../settings.json'
 
 type ThemeType = 'light' | 'dark'
@@ -15,22 +15,22 @@ function changeTheme(newTheme?: ThemeType) {
 changeTheme()
 
 class GlobalStore {
-  @observable
+  constructor() {
+    makeAutoObservable(this)
+  }
   theme: ThemeType = defaultTheme as ThemeType
 
-  @observable
   settings = defaultSettings
 
-  @action
   changeTheme = (theme: ThemeType) => {
     if (theme === 'light' || theme === 'dark') {
       localStorage.setItem('arco-theme', theme)
       changeTheme(theme)
     }
     this.theme = theme
+    console.log('theme store dispatch', this.theme)
   }
 
-  @action
   updateSettings = (settings: typeof defaultSettings) => {
     this.settings = { ...defaultSettings, ...settings }
   }

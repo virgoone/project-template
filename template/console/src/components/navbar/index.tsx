@@ -10,17 +10,19 @@ import {
   Space,
 } from '@arco-design/web-react'
 import { IconSunFill, IconMoonFill } from '@arco-design/web-react/icon'
-import { observer, useLocalStore } from 'mobx-react'
-import { globalStore } from '@/stores/global'
-import useLocale from '@/hooks/useLocale'
-import history from '@/globals/history'
-import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { observer } from 'mobx-react'
+import { useNavigate } from 'react-router-dom'
 
+import useLocale from '@/hooks/useLocale'
+import useStores from '@/hooks/useStores'
+
+import { ReactComponent as Logo } from '../../assets/logo.svg'
 import styles from './style.scss?modules'
 
 function Navbar() {
   const locale = useLocale()
-  const store = useLocalStore(() => globalStore)
+  const navigate = useNavigate()
+  const store = useStores('global')
   const { theme, changeTheme } = store
   const userInfo = {
     avatar:
@@ -30,7 +32,7 @@ function Navbar() {
 
   function logout() {
     localStorage.setItem('userStatus', 'logout')
-    history.push('/user/login')
+    navigate('/ids/login')
   }
 
   function onMenuItemClick(key: string) {
@@ -38,6 +40,7 @@ function Navbar() {
       logout()
     }
   }
+  console.log('theme', theme)
 
   return (
     <div className={styles.navbar}>
@@ -115,4 +118,4 @@ function Navbar() {
   )
 }
 
-export default observer(() => <Navbar />)
+export default observer(Navbar)

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="dns-prefetch" href="//cdn.staticfile.org">
+  <% if(APP_ENV === 'production') {%>
   <link rel="apple-touch-icon" sizes="180x180"
     href="https://dounione.oss-cn-shanghai.aliyuncs.com/icon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32"
@@ -11,6 +12,8 @@
   <link rel="icon" type="image/png" sizes="16x16"
     href="https://dounione.oss-cn-shanghai.aliyuncs.com/icon/favicon-16x16.png">
   <link rel="shortcut icon" href="https://dounione.oss-cn-shanghai.aliyuncs.com/icon/favicon.ico" type="image/x-icon">
+  <% } %>
+
   <meta name="description" content="index">
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport"

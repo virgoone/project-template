@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { observer, Provider } from 'mobx-react'
+import {  Provider } from 'mobx-react'
 import { ConfigProvider } from '@arco-design/web-react'
 import zhCN from '@arco-design/web-react/es/locale/zh-CN'
 import enUS from '@arco-design/web-react/es/locale/en-US'
 import { GlobalContext } from '@/globals/context'
-import store from '@/stores'
+import store from '@/store'
 import PageLayout from './layout'
 import Login from './pages/login'
 
@@ -43,19 +43,19 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <ConfigProvider locale={getArcoLocale()}>
-        <Provider store={store}>
-          <GlobalContext.Provider value={contextValue}>
+    <ConfigProvider locale={getArcoLocale()}>
+      <Provider {...store}>
+        <GlobalContext.Provider value={contextValue}>
+          <BrowserRouter basename="/">
             <Routes>
               <Route path="/ids/login" element={<Login />} />
               <Route path="*" element={<PageLayout />} />
             </Routes>
-          </GlobalContext.Provider>
-        </Provider>
-      </ConfigProvider>
-    </BrowserRouter>
+          </BrowserRouter>
+        </GlobalContext.Provider>
+      </Provider>
+    </ConfigProvider>
   )
 }
 
-export default observer(() => <App />)
+export default App

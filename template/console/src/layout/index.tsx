@@ -1,12 +1,11 @@
 import React, { useState, useRef, useMemo } from 'react'
 import { Layout, Menu } from '@arco-design/web-react'
 import { IconMenuFold, IconMenuUnfold } from '@arco-design/web-react/icon'
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom'
+import { observer } from 'mobx-react'
 import qs from 'query-string'
-import { Routes, Route, Link } from 'react-router-dom'
-import { observer, useLocalStore } from 'mobx-react'
+import useStores from '@/hooks/useStores'
 
-import history from '@/globals/history'
-import { globalStore } from '@/stores/global'
 import { routes, defaultRoute, RouteConfig } from '../routes'
 import useLocale from '../hooks/useLocale'
 import { getUrlParams } from '../utils/url'
@@ -15,7 +14,7 @@ import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import LoadingBar, { LoadingBarHandle } from '../components/loading-bar'
 import lazyload from '../components/lazyload'
-import IndexPage from '../pages/index'
+import Welcome from '../pages/welcome'
 
 import styles from './style.scss?modules'
 
@@ -88,12 +87,13 @@ function renderRoutes(locale: Record<string, string>) {
 
 function PageLayout() {
   const urlParams = getUrlParams()
-  const pathname = history.location.pathname
-  const currentComponent = qs.parseUrl(pathname).url.slice(1)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const currentComponent = qs.parseUrl(location.pathname).url.slice(1);
   const defaultSelectedKeys = [currentComponent || defaultRoute]
-
   const locale = useLocale()
-  const settings = useLocalStore(() => globalStore).settings
+  const store = useStores('global')
+  const { settings } = store
 
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [selectedKeys, setSelectedKeys] =
@@ -108,7 +108,6 @@ function PageLayout() {
   const showFooter = settings.footer && urlParams.footer !== false
 
   const flattenRoutes = useMemo(() => getFlattenRoutes() || [], [])
-
   function onClickMenuItem(key: string) {
     const currentRoute = flattenRoutes.find((r) => r.key === key)
     if (!currentRoute) {
@@ -120,7 +119,7 @@ function PageLayout() {
     loadingBarRef.current?.loading?.()
     preload.then(() => {
       setSelectedKeys([key])
-      history.push(currentRoute.path ? currentRoute.path : `/${key}`)
+      navigate(currentRoute.path ? currentRoute.path : `/${key}`)
       loadingBarRef.current?.success?.()
     })
   }
@@ -180,7 +179,7 @@ function PageLayout() {
                   />
                 )
               })}
-              <Route path="*" element={<IndexPage />} />
+              <Route path="*" element={<Welcome />} />
             </Routes>
           </Content>
           {showFooter && <Footer />}
@@ -190,4 +189,4 @@ function PageLayout() {
   )
 }
 
-export default observer(() => <PageLayout />)
+export default observer(PageLayout)

@@ -1,9 +1,5 @@
-module.exports = api => {
-  api.cache(true)
-
+module.exports = (api) => {
   return {
-    plugins: [
-      
-    ],
+    plugins: []
   }
 }

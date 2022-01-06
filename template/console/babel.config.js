@@ -5,9 +5,9 @@ module.exports = (api) => {
         'babel-plugin-import',
         {
           libraryName: '@arco-design/web-react',
-          libraryDirectory: 'es',
+          libraryDirectory: 'lib',
           camel2DashComponentName: false,
-          style: true, // 样式按需加载
+          style: 'css', // 样式按需加载
         },
         '@arco-design/web-react',
       ],

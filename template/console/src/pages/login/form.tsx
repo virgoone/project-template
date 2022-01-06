@@ -9,7 +9,7 @@ import {
 } from '@arco-design/web-react'
 import { FormInstance } from '@arco-design/web-react/es/Form'
 import { IconLock, IconUser } from '@arco-design/web-react/icon'
-import history from '@/globals/history'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import styles from './style.scss?modules'
 
@@ -18,6 +18,7 @@ export default function LoginForm() {
   const [errorMessage, setErrorMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
+  const navigate = useNavigate()
 
   function afterLoginSuccess(params: Record<string, string>) {
     // 记住密码
@@ -29,9 +30,7 @@ export default function LoginForm() {
     // 记录登录状态
     localStorage.setItem('userStatus', 'login')
     // 跳转首页
-    window.location.href = history.createHref({
-      pathname: '/',
-    })
+    navigate('/')
   }
 
   function login(params: Record<string, any>) {

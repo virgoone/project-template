@@ -1,16 +1,20 @@
-import React from 'react';
-import { Card, Typography, Progress, Avatar } from '@arco-design/web-react';
-import useLocale from '@/hooks/useLocale';
-import styles from './style/index.scss?modules';
+import React from 'react'
+import { Card, Typography, Progress, Avatar } from '@arco-design/web-react'
+import useLocale from '@/hooks/useLocale'
+import styles from './style/index.scss?modules'
 
-const { Paragraph } = Typography;
-const AvatarGroup = Avatar.Group;
+const { Paragraph } = Typography
+const AvatarGroup = Avatar.Group
 
 function ProjectProgress() {
-  const locale = useLocale();
+  const locale = useLocale()
 
   return (
-    <Card title={locale['workplace.projectProgress']} bordered={false} className={styles.panel}>
+    <Card
+      title={locale['workplace.projectProgress']}
+      bordered={false}
+      className={styles.panel}
+    >
       <Paragraph bold>Arco Design System</Paragraph>
       <Progress percent={70} showText={false} />
       <AvatarGroup size={32} style={{ marginTop: 10 }}>
@@ -22,7 +26,7 @@ function ProjectProgress() {
         <Avatar style={{ backgroundColor: '#14C9C9' }}>KK</Avatar>
       </AvatarGroup>
     </Card>
-  );
+  )
 }
 
-export default ProjectProgress;
+export default ProjectProgress

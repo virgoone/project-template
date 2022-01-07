@@ -13,4 +13,4 @@ export default {
   'welcome.title.material': '更多物料请查看以下链接',
   'welcome.link.material-pro': 'Arco Design Pro 物料合集',
   'welcome.link.material-all': '所有物料',
-};
+}

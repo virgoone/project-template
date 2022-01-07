@@ -31,4 +31,4 @@ export default {
   'workplace.quick.operation': '快捷操作',
   'workplace.allProject': '所有项目',
   'workplace.loadMore': '加载更多',
-};
+}

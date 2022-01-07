@@ -89,7 +89,7 @@ function PageLayout() {
   const urlParams = getUrlParams()
   const location = useLocation()
   const navigate = useNavigate()
-  const currentComponent = qs.parseUrl(location.pathname).url.slice(1);
+  const currentComponent = qs.parseUrl(location.pathname).url.slice(1)
   const defaultSelectedKeys = [currentComponent || defaultRoute]
   const locale = useLocale()
   const store = useStores('global')

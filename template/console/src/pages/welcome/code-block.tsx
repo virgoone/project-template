@@ -10,6 +10,7 @@ interface CodeBlockProps {
 
 export default function CodeBlock(props: CodeBlockProps) {
   const { code } = props
+
   return (
     <pre className={styles['code-block']}>
       <code className={styles['code-block-content']}>{code}</code>

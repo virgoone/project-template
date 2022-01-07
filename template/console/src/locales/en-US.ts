@@ -1,6 +1,9 @@
 import localeSettings from './en-US/settings'
 import localeWorkplace from '../pages/workplace/locale/en-US'
 import localeWelcome from '../pages/welcome/locale/en-US'
+import locale403 from '../pages/403/locale/en-US'
+import locale404 from '../pages/404/locale/en-US'
+import locale500 from '../pages/500/locale/en-US'
 
 export default {
   'menu.dashboard': 'Dashboard',
@@ -15,4 +18,7 @@ export default {
   ...localeSettings,
   ...localeWorkplace,
   ...localeWelcome,
+  ...locale403,
+  ...locale404,
+  ...locale500,
 }

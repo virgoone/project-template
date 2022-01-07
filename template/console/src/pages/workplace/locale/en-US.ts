@@ -31,4 +31,4 @@ export default {
   'workplace.quick.operation': 'Quick Operation',
   'workplace.allProject': 'All',
   'workplace.loadMore': 'More',
-};
+}

@@ -12,7 +12,8 @@ export default {
   'welcome.step.content.install':
     'After getting the package name, you can install the material through the following command.',
   'welcome.step.content.result': 'Then, you get a workplace page easily.',
-  'welcome.title.material': 'For more materials, please check the following link',
+  'welcome.title.material':
+    'For more materials, please check the following link',
   'welcome.link.material-pro': 'Arco Design Pro material collection',
   'welcome.link.material-all': 'All materials',
-};
+}

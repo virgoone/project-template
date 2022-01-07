@@ -30,6 +30,7 @@ npm-debug.log
 tmp/
 log/
 db/
+tsconfig.tsbuildinfo
 
 config/database.yml
 config/secrets.yml

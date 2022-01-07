@@ -77,14 +77,14 @@ declare module '*.webp' {
 }
 
 declare module '*.svg' {
-  import * as React from 'react';
+  import * as React from 'react'
 
-  export const ReactComponent: React.FunctionComponent<React.SVGProps<
-    SVGSVGElement
-  > & { title?: string }>;
+  export const ReactComponent: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement> & { title?: string }
+  >
 
-  const src: string;
-  export default src;
+  const src: string
+  export default src
 }
 
 declare module '*.css' {
@@ -111,3 +111,5 @@ declare module '*?modules' {
   const classes: { readonly [key: string]: string }
   export default classes
 }
+
+declare module '@arco-design/color'

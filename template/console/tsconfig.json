@@ -2,9 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
     "jsx": "react",
     "skipLibCheck": true,
@@ -25,15 +23,6 @@
     "incremental": true,
     "declarationMap": false
   },
-  "include": [
-    "src",
-    "types",
-    "*.ts",
-    "*.tsx"
-  ],
-  "exclude": [
-    "node_modules",
-    "public",
-    "dist"
-  ]
+  "include": ["src", "types", "*.ts", "*.tsx"],
+  "exclude": ["node_modules", "public", "dist"]
 }

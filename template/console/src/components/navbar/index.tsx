@@ -22,16 +22,12 @@ import styles from './style.scss?modules'
 function Navbar() {
   const locale = useLocale()
   const navigate = useNavigate()
-  const store = useStores('global')
-  const { theme, changeTheme } = store
-  const userInfo = {
-    avatar:
-      'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
-    name: 'Arco Pro',
-  }
+  const global = useStores('global')
+  const user = useStores('user')
+  const { theme, changeTheme } = global
 
   function logout() {
-    localStorage.setItem('userStatus', 'logout')
+    user.doLogout()
     navigate('/ids/login')
   }
 
@@ -40,7 +36,6 @@ function Navbar() {
       logout()
     }
   }
-  console.log('theme', theme)
 
   return (
     <div className={styles.navbar}>
@@ -94,10 +89,10 @@ function Navbar() {
             />
           </Tooltip>
         </li>
-        {userInfo?.avatar && (
+        {user?.avatar && (
           <li>
             <Avatar size={24} style={{ marginRight: 8 }}>
-              <img alt="avatar" src={userInfo.avatar} />
+              <img alt="avatar" src={user.avatar} />
             </Avatar>
             <Dropdown
               trigger="click"
@@ -108,7 +103,7 @@ function Navbar() {
               }
             >
               <Typography.Text className={styles.username}>
-                {userInfo.name}
+                {user.name}
               </Typography.Text>
             </Dropdown>
           </li>

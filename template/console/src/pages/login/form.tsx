@@ -11,16 +11,19 @@ import { FormInstance } from '@arco-design/web-react/es/Form'
 import { IconLock, IconUser } from '@arco-design/web-react/icon'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { observer } from 'mobx-react'
+import useStores from '@/hooks/useStores'
 import styles from './style.scss?modules'
 
-export default function LoginForm() {
+function LoginForm() {
   const formRef = useRef<FormInstance>(null)
   const [errorMessage, setErrorMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
   const navigate = useNavigate()
+  const user = useStores('user')
 
-  function afterLoginSuccess(params: Record<string, string>) {
+  function afterLoginSuccess(params: Record<string, string>, token: string) {
     // 记住密码
     if (rememberPassword) {
       localStorage.setItem('loginParams', JSON.stringify(params))
@@ -28,7 +31,9 @@ export default function LoginForm() {
       localStorage.removeItem('loginParams')
     }
     // 记录登录状态
-    localStorage.setItem('userStatus', 'login')
+    localStorage.setItem('@token', token)
+    user.getUserInfo()
+    user.isLogin = true
     // 跳转首页
     navigate('/')
   }
@@ -39,9 +44,9 @@ export default function LoginForm() {
     axios
       .post('/api/user/login', params)
       .then((res) => {
-        const { status, msg } = res.data
+        const { status, msg, token } = res.data
         if (status === 'ok') {
-          afterLoginSuccess(params)
+          afterLoginSuccess(params, token)
         } else {
           setErrorMessage(msg || '登录出错，请刷新重试')
         }
@@ -116,3 +121,4 @@ export default function LoginForm() {
     </div>
   )
 }
+export default observer(LoginForm)

@@ -8,6 +8,7 @@ setupMock({
 
     // 用户信息
     Mock.mock(new RegExp('/api/user/userInfo'), () => {
+
       return {
         name: '我是谁',
         avatar:
@@ -34,6 +35,7 @@ setupMock({
       if (userName === 'admin' && password === 'admin') {
         return {
           status: 'ok',
+          token: Mock.mock('@id()'),
         }
       }
       return {

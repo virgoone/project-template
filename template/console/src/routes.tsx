@@ -24,7 +24,12 @@ export const routes: RouteConfig[] = [
       {
         name: 'menu.dashboard.workplace',
         key: 'dashboard/workplace',
-        componentPath: 'workplace',
+        componentPath: 'dashboard/workplace',
+      },
+      {
+        name: 'menu.dashboard.monitor',
+        key: 'dashboard/monitor',
+        componentPath: 'dashboard/monitor',
       },
     ],
   },
@@ -36,17 +41,17 @@ export const routes: RouteConfig[] = [
       {
         name: 'menu.exception.403',
         key: 'exception/403',
-        componentPath: '403',
+        componentPath: 'exception/403',
       },
       {
         name: 'menu.exception.404',
         key: 'exception/404',
-        componentPath: '404',
+        componentPath: 'exception/404',
       },
       {
         name: 'menu.exception.500',
         key: 'exception/500',
-        componentPath: '500',
+        componentPath: 'exception/500',
       },
     ],
   },

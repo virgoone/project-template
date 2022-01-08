@@ -113,3 +113,5 @@ declare module '*?modules' {
 }
 
 declare module '@arco-design/color'
+
+declare module 'nprogress'

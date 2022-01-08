@@ -73,6 +73,12 @@ function LoginForm() {
     }
   }, [])
 
+  useEffect(() => {
+    if (user.isLogin) {
+      navigate('/')
+    }
+  }, [user])
+
   return (
     <div className={styles['login-form-wrapper']}>
       <div className={styles['login-form-title']}>登录 Arco Design Pro</div>

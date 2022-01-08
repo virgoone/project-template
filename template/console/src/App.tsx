@@ -12,16 +12,13 @@ import Setting from './components/settings'
 import Auth from './components/auth'
 
 function App() {
-  const localeName = localStorage.getItem('arco-lang') || 'zh-CN'
+  const defaultLang = localStorage.getItem('arco-lang') || 'zh-CN'
+  const [lang, setLang] = useState(defaultLang)
 
-  if (!localStorage.getItem('arco-lang')) {
-    localStorage.setItem('arco-lang', localeName)
-  }
-  const [locale, setLocale] = useState()
   const { user } = store
 
   function getArcoLocale() {
-    switch (localeName) {
+    switch (lang) {
       case 'zh-CN':
         return zhCN
       case 'en-US':
@@ -31,14 +28,9 @@ function App() {
     }
   }
 
-  async function fetchLocale(ln?: string) {
-    const locale = (await import(`./locales/${ln || localeName}`)).default
-    setLocale(locale)
-  }
-
   useEffect(() => {
-    fetchLocale()
-  }, [])
+    localStorage.setItem('arco-lang', lang)
+  }, [lang])
 
   useEffect(() => {
     const isLogin = localStorage.getItem('@token')
@@ -50,13 +42,27 @@ function App() {
   }, [])
 
   const contextValue = {
-    locale,
     user,
+    lang,
+    setLang,
   }
 
-  return locale ? (
+  return (
     <BrowserRouter basename="/">
-      <ConfigProvider locale={getArcoLocale()}>
+      <ConfigProvider
+        locale={getArcoLocale()}
+        componentConfig={{
+          Card: {
+            bordered: false,
+          },
+          List: {
+            bordered: false,
+          },
+          Table: {
+            border: false,
+          },
+        }}
+      >
         <Provider {...store}>
           <GlobalContext.Provider value={contextValue}>
             <Routes>
@@ -75,7 +81,7 @@ function App() {
         </Provider>
       </ConfigProvider>
     </BrowserRouter>
-  ) : null
+  )
 }
 
 export default App

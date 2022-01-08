@@ -1,77 +1,137 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   Tooltip,
-  Button,
   Avatar,
   Select,
-  Typography,
   Dropdown,
   Menu,
-  Space,
+  Message,
+  Divider,
+  Input,
 } from '@arco-design/web-react'
-import { IconSunFill, IconMoonFill } from '@arco-design/web-react/icon'
+import {
+  IconSunFill,
+  IconMoonFill,
+  IconUser,
+  IconSettings,
+  IconExperiment,
+  IconDashboard,
+  IconInteraction,
+  IconLanguage,
+  IconNotification,
+  IconPoweroff,
+} from '@arco-design/web-react/icon'
 import { observer } from 'mobx-react'
 import { useNavigate } from 'react-router-dom'
 
 import useLocale from '@/hooks/useLocale'
 import useStores from '@/hooks/useStores'
+import defaultLocale, { i18nType } from '@/locale'
+import { GlobalContext } from '@/globals/context'
+
+import IconButton from './icon-button'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg'
-import styles from './style.scss?modules'
+import MessageBox from '../message-box'
+import styles from './style/index.scss?modules'
 
 function Navbar() {
   const locale = useLocale()
   const navigate = useNavigate()
   const global = useStores('global')
-  const user = useStores('user')
+  const userInfo = useStores('user')
+  const { setLang } = useContext(GlobalContext)
+
   const { theme, changeTheme } = global
 
   function logout() {
-    user.doLogout()
+    userInfo.doLogout()
     navigate('/ids/login')
   }
 
   function onMenuItemClick(key: string) {
     if (key === 'logout') {
       logout()
+    } else {
+      Message.info(`You clicked ${key}`)
     }
   }
+  console.log('navbar locale', locale)
+
+  const droplist = (
+    <Menu onClickMenuItem={onMenuItemClick}>
+      <Menu.Item key="user info">
+        <IconUser className={styles['dropdown-icon']} />
+        {locale['menu.user.info']}
+      </Menu.Item>
+      <Menu.Item key="setting">
+        <IconSettings className={styles['dropdown-icon']} />
+        {locale['menu.user.setting']}
+      </Menu.Item>
+      <Menu.SubMenu
+        key="more"
+        title={
+          <div style={{ width: 80 }}>
+            <IconExperiment className={styles['dropdown-icon']} />
+            {locale['message.seeMore']}
+          </div>
+        }
+      >
+        <Menu.Item key="workplace">
+          <IconDashboard className={styles['dropdown-icon']} />
+          {locale['menu.dashboard.workplace']}
+        </Menu.Item>
+        <Menu.Item key="card list">
+          <IconInteraction className={styles['dropdown-icon']} />
+          {locale['menu.list.cardList']}
+        </Menu.Item>
+      </Menu.SubMenu>
+      <Divider style={{ margin: '4px 0' }} />
+      <Menu.Item key="logout">
+        <IconPoweroff className={styles['dropdown-icon']} />
+        {locale['navbar.logout']}
+      </Menu.Item>
+    </Menu>
+  )
 
   return (
     <div className={styles.navbar}>
       <div className={styles.left}>
-        <Space size={8}>
+        <div className={styles.logo}>
           <Logo />
-          <Typography.Title style={{ margin: 0, fontSize: 18 }} heading={5}>
-            Arco Design Pro
-          </Typography.Title>
-        </Space>
+          <div className={styles['logo-name']}>Arco Pro</div>
+        </div>
       </div>
       <ul className={styles.right}>
-        {/* <li>
-          <MessageBox />
-        </li> */}
         <li>
-          <a>{locale['navbar.docs']}</a>
+          <Input.Search className={styles.round} placeholder="Please search" />
         </li>
         <li>
           <Select
+            triggerElement={<IconButton icon={<IconLanguage />} />}
             options={[
               { label: '中文', value: 'zh-CN' },
               { label: 'English', value: 'en-US' },
             ]}
             value={localStorage.getItem('arco-lang') || 'zh-CN'}
-            bordered={false}
             triggerProps={{
               autoAlignPopupWidth: false,
               autoAlignPopupMinWidth: true,
-              position: 'bl',
+              position: 'br',
             }}
-            onChange={(value) => {
+            trigger="hover"
+            onChange={(value: i18nType) => {
               localStorage.setItem('arco-lang', value)
-              window.location.reload()
+              setLang?.(value)
+              const nextLang = defaultLocale[value]
+              Message.info(`${nextLang['message.lang.tips']}${value}`)
             }}
           />
+        </li>
+        <li>
+          <MessageBox>
+            <IconButton icon={<IconNotification />} />
+          </MessageBox>
         </li>
         <li>
           <Tooltip
@@ -81,30 +141,18 @@ function Navbar() {
                 : locale['settings.navbar.theme.toLight']
             }
           >
-            <Button
-              type="text"
+            <IconButton
               icon={theme === 'light' ? <IconMoonFill /> : <IconSunFill />}
               onClick={() => changeTheme(theme === 'light' ? 'dark' : 'light')}
-              style={{ fontSize: 20 }}
             />
           </Tooltip>
         </li>
-        {user?.avatar && (
+        {userInfo && (
           <li>
-            <Avatar size={24} style={{ marginRight: 8 }}>
-              <img alt="avatar" src={user.avatar} />
-            </Avatar>
-            <Dropdown
-              trigger="click"
-              droplist={
-                <Menu onClickMenuItem={onMenuItemClick}>
-                  <Menu.Item key="logout">登出</Menu.Item>
-                </Menu>
-              }
-            >
-              <Typography.Text className={styles.username}>
-                {user.name}
-              </Typography.Text>
+            <Dropdown droplist={droplist} position="br">
+              <Avatar size={32} style={{ cursor: 'pointer' }}>
+                <img alt="avatar" src={userInfo.avatar} />
+              </Avatar>
             </Dropdown>
           </li>
         )}

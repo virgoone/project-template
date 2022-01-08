@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
 import './user'
-import './policy'
+import './message-box'
 
 Mock.setup({
   timeout: '200-600',

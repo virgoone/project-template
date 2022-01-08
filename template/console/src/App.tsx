@@ -9,6 +9,7 @@ import store from '@/store'
 import PageLayout from './layout'
 import Login from './pages/login'
 import Setting from './components/settings'
+import Auth from './components/auth'
 
 function App() {
   const localeName = localStorage.getItem('arco-lang') || 'zh-CN'
@@ -16,8 +17,8 @@ function App() {
   if (!localStorage.getItem('arco-lang')) {
     localStorage.setItem('arco-lang', localeName)
   }
-
   const [locale, setLocale] = useState()
+  const { user } = store
 
   function getArcoLocale() {
     switch (localeName) {
@@ -39,25 +40,42 @@ function App() {
     fetchLocale()
   }, [])
 
+  useEffect(() => {
+    const isLogin = localStorage.getItem('@token')
+
+    if (isLogin) {
+      user.getUserInfo()
+      user.isLogin = true
+    }
+  }, [])
+
   const contextValue = {
     locale,
+    user,
   }
 
-  return (
-    <ConfigProvider locale={getArcoLocale()}>
-      <Provider {...store}>
-        <GlobalContext.Provider value={contextValue}>
-          <BrowserRouter basename="/">
+  return locale ? (
+    <BrowserRouter basename="/">
+      <ConfigProvider locale={getArcoLocale()}>
+        <Provider {...store}>
+          <GlobalContext.Provider value={contextValue}>
             <Routes>
               <Route path="/ids/login" element={<Login />} />
-              <Route path="*" element={<PageLayout />} />
+              <Route
+                path="*"
+                element={
+                  <Auth>
+                    <PageLayout />
+                  </Auth>
+                }
+              />
             </Routes>
             <Setting />
-          </BrowserRouter>
-        </GlobalContext.Provider>
-      </Provider>
-    </ConfigProvider>
-  )
+          </GlobalContext.Provider>
+        </Provider>
+      </ConfigProvider>
+    </BrowserRouter>
+  ) : null
 }
 
 export default App

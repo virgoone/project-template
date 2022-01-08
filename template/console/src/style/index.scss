@@ -1,3 +1,4 @@
+@import 'nprogress/nprogress.css';
 @import './typeface';
 
 html,
@@ -8,14 +9,56 @@ body {
   margin: 0;
   padding: 0;
   font-size: 14px;
-  // font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, PingFang SC, Roboto, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, Myriad Pro, Hiragino Sans GB, Lucida Grande, sans-serif;
   background-color: var(--color-bg-1);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
 
-#App {
-  height: 100%;
-  min-height: 100vh;
+.arco-badge.arco-badge-status {
+  .arco-badge-status-text {
+    font-size: 14px;
+  }
+}
+
+.arco-descriptions-row {
+  > .arco-descriptions-item-label,
+  .arco-descriptions-item-label-inline {
+    font-weight: normal;
+    color: var(--color-text-2);
+  }
+}
+
+.arco-card.arco-card-size-default {
+  border-radius: 4px;
+}
+
+.chart-wrapper {
+  .bizcharts-tooltip {
+    background: linear-gradient(
+      304.17deg,
+      rgb(253 254 255 / 60%) -6.04%,
+      rgb(244 247 252 / 60%) 85.2%
+    ) !important;
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    padding: 8px !important;
+    width: 180px !important;
+    opacity: 1 !important;
+  }
+}
+
+body[arco-theme='dark'] {
+  .chart-wrapper {
+    .bizcharts-tooltip {
+      background: linear-gradient(
+        304.17deg,
+        rgba(90, 92, 95, 0.6) -6.04%,
+        rgba(87, 87, 87, 0.6) 85.2%
+      ) !important;
+      backdrop-filter: blur(10px);
+      border-radius: 6px;
+      box-shadow: none !important;
+    }
+  }
 }

@@ -1,17 +1,9 @@
-import {
-  Alert,
-  Card,
-  Link,
-  Typography,
-  Tag,
-  Image,
-} from '@arco-design/web-react'
+import { Alert, Card, Link, Typography, Tag } from '@arco-design/web-react'
 import { IconDoubleRight } from '@arco-design/web-react/icon'
 import React from 'react'
 import { observer } from 'mobx-react'
-import useLocale from '@/hooks/useLocale'
 import useStores from '@/hooks/useStores'
-import imgWorkplace from '../../assets/workplace.png'
+import useLocale from './locale/useLocale'
 import CodeBlock from './code-block'
 import styles from './style/index.scss?modules'
 
@@ -29,13 +21,9 @@ function Welcome() {
           {userInfo.name}, {userInfo.email}
         </Typography.Text>
       </div>
-      <div className={styles.content}>
+      <div>
         <Alert type="success" content={locale['welcome.invite']} />
-        <Card
-          style={{ marginTop: 20 }}
-          bordered={false}
-          title={locale['welcome.usage']}
-        >
+        <Card style={{ marginTop: 20 }} title={locale['welcome.usage']}>
           <Typography.Title heading={6} style={{ marginTop: 0 }}>
             1. {locale['welcome.step.title.pickup']}
           </Typography.Title>
@@ -60,9 +48,6 @@ function Welcome() {
           <Typography.Text>
             {locale['welcome.step.content.result']}
           </Typography.Text>
-          <div style={{ marginTop: '1em' }}>
-            <Image preview={false} width={600} src={imgWorkplace} />
-          </div>
         </Card>
         <Card style={{ marginTop: 20 }}>
           <Typography.Text>{locale['welcome.title.material']}</Typography.Text>

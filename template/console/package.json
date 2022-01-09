@@ -27,7 +27,7 @@
     "clsx": "^1.1.1",
     "history": "^5.1.0",
     "lottie-web": "^5.8.1",
-    "mobx": "^6.3.10",
+    "mobx": "^6.3.12",
     "mobx-react": "^7.2.1",
     "mockjs": "^1.1.0",
     "normalize.css": "^8.0.1",

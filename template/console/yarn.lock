@@ -2616,10 +2616,10 @@
   resolved "https://registry.npmjs.org/@types/minimist/-/minimist-1.2.2.tgz"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/mockjs@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@types/mockjs/-/mockjs-1.0.4.tgz#e706951d5e33b4f0a4bb73b1f8b124e26f081de0"
-  integrity sha512-gK20xPqJhzMIitechVbvfnAk+oBIxVRnWrihJpRYHMI6UHCB/cvWgJa+dy6trRwQLE3AbtAJnXpm7pn6blG8sA==
+"@types/mockjs@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/mockjs/-/mockjs-1.0.5.tgz#879b0cc06746402d243bc284f68318b6b0954818"
+  integrity sha512-2W1YhcyogyK7LjYyJwrKTYajCydiPWXKM8GYJSBv4aQiiC/Hf8cVFD2jhjXTzXierL5V0d+u3CjMQL2vRrsA5Q==
 
 "@types/node@*":
   version "16.7.10"

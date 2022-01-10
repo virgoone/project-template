@@ -51,3 +51,4 @@ coverage/
 *.pid
 *.log
 /linters/sass-lint.html
+tsconfig.tsbuildinfo

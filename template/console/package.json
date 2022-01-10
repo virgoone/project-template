@@ -45,7 +45,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.0.1",
     "@commitlint/config-conventional": "^16.0.0",
-    "@lark-org/lark-cli-service": "^2.3.1",
+    "@lark-org/lark-cli-service": "^2.3.3",
     "@types/loadable__component": "^5.13.4",
     "@types/lodash": "^4.14.178",
     "@types/mockjs": "^1.0.5",

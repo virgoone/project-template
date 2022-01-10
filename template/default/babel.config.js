@@ -1,4 +1,4 @@
-module.exports = (api) => {
+module.exports = () => {
   return {
     plugins: []
   }

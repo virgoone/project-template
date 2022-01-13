@@ -7,7 +7,7 @@ export default function QuickOperation() {
   const locale = useLocale()
   const columns = [
     {
-      title: ['monitor.list.title.order'],
+      title: locale['monitor.list.title.order'],
       render: (_col: any, _record: any, index: number) => (
         <span>{index + 1}</span>
       ),

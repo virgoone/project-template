@@ -3,6 +3,8 @@ import {
   IconGift,
   IconDashboard,
   IconExclamationCircle,
+  IconSettings,
+  IconList,
 } from '@arco-design/web-react/icon'
 
 export const defaultRoute = 'welcome'
@@ -30,6 +32,40 @@ export const routes: RouteConfig[] = [
         name: 'menu.dashboard.monitor',
         key: 'dashboard/monitor',
         componentPath: 'dashboard/monitor',
+      },
+    ],
+  },
+  {
+    name: 'menu.list',
+    key: 'list',
+    icon: <IconList />,
+    children: [
+      {
+        name: 'menu.list.searchTable',
+        key: 'list/search-table',
+        componentPath: 'list/search-table',
+      },
+      {
+        name: 'menu.list.cardList',
+        key: 'list/card',
+        componentPath: 'list/card',
+      },
+    ],
+  },
+  {
+    name: 'menu.form',
+    key: 'form',
+    icon: <IconSettings />,
+    children: [
+      {
+        name: 'menu.form.group',
+        key: 'form/group',
+        componentPath: 'form/group',
+      },
+      {
+        name: 'menu.form.step',
+        key: 'form/step',
+        componentPath: 'form/step',
       },
     ],
   },

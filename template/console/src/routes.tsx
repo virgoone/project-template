@@ -5,6 +5,8 @@ import {
   IconExclamationCircle,
   IconSettings,
   IconList,
+  IconCheckCircle,
+  // IconApps,
 } from '@arco-design/web-react/icon'
 
 export const defaultRoute = 'welcome'
@@ -16,6 +18,7 @@ export const routes: RouteConfig[] = [
     name: 'menu.welcome',
     key: 'welcome',
     icon: <IconGift />,
+    breadcrumb: false,
     componentPath: 'welcome',
   },
   {
@@ -66,6 +69,25 @@ export const routes: RouteConfig[] = [
         name: 'menu.form.step',
         key: 'form/step',
         componentPath: 'form/step',
+      },
+    ],
+  },
+  {
+    name: 'menu.result',
+    key: 'result',
+    icon: <IconCheckCircle />,
+    children: [
+      {
+        name: 'menu.result.success',
+        key: 'result/success',
+        breadcrumb: false,
+        componentPath: 'result/success',
+      },
+      {
+        name: 'menu.result.error',
+        key: 'result/error',
+        breadcrumb: false,
+        componentPath: 'result/error',
       },
     ],
   },

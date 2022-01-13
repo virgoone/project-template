@@ -20,8 +20,8 @@ function PeriodLine({ data, loading }: { data: any[]; loading: boolean }) {
       >
         <Line shape="smooth" position="time*rate" color={['name', lineColor]} />
         <Tooltip crosshairs={{ type: 'x' }} showCrosshairs shared>
-          {(title: string, items: any) => {
-            return <CustomTooltip title={title} data={items} />
+          {(title, items) => {
+            return <CustomTooltip title={`${title}`} data={items || []} />
           }}
         </Tooltip>
         <Axis

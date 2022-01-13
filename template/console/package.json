@@ -22,6 +22,7 @@
     "@arco-design/color": "^0.4.0",
     "@arco-design/web-react": "^2.28.0",
     "@loadable/component": "^5.15.2",
+    "@turf/turf": "^6.5.0",
     "axios": "^0.24.0",
     "bizcharts": "^4.1.15",
     "clsx": "^1.1.1",

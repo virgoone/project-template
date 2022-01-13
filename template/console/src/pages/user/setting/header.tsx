@@ -19,7 +19,12 @@ export default function Info({
   userInfo: any
   loading: boolean
 }) {
-  console.log('userInfo', userInfo.avatar, userInfo.phoneNumber, userInfo.accountId)
+  console.log(
+    'userInfo',
+    userInfo.avatar,
+    userInfo.phoneNumber,
+    userInfo.accountId
+  )
   const locale = useLocale(locales)
 
   const [avatar, setAvatar] = useState('')

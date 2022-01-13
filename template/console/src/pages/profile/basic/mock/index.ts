@@ -1,5 +1,5 @@
-import Mock from 'mockjs';
-import setupMock from '@/utils/setupMock';
+import Mock from 'mockjs'
+import setupMock from '@/utils/setupMock'
 
 setupMock({
   setup: () => {
@@ -34,8 +34,8 @@ setupMock({
             profile: 'ACC-LC',
           },
         },
-      };
-    });
+      }
+    })
 
     Mock.mock(new RegExp('/api/adjustment'), () => {
       return new Array(2).fill('0').map(() => ({
@@ -46,7 +46,7 @@ setupMock({
         content: '视频参数变更，音频参数变更',
         status: Mock.Random.natural(0, 1),
         updatedTime: Mock.Random.datetime('yyyy-MM-dd HH:mm:ss'),
-      }));
-    });
+      }))
+    })
   },
-});
+})

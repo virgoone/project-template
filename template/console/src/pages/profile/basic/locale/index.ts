@@ -77,6 +77,6 @@ const i18n = {
     'basicProfile.adjustment.waiting': '审核中',
     'basicProfile.adjustment.operation.view': '查看',
   },
-};
+}
 
-export default i18n;
+export default i18n

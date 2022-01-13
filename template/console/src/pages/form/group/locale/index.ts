@@ -79,6 +79,6 @@ const i18n = {
     'groupForm.reset': '重置',
     'groupForm.submitSuccess': '提交成功',
   },
-};
+}
 
-export default i18n;
+export default i18n

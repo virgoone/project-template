@@ -61,8 +61,8 @@ function Overview() {
   const [loading, setLoading] = useState(true)
   const locale = useLocale()
 
-  const userInfo = useStores('user')
-
+  const userStore = useStores('user')
+  const { info: userInfo = {} } = userStore
   const fetchData = () => {
     setLoading(true)
     axios

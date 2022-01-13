@@ -1,0 +1,22 @@
+.project-wrapper {
+  cursor: pointer;
+
+  :global(.arco-card-body) {
+    padding: 16px;
+  }
+
+  h6 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .avatar {
+    margin-top: 22px;
+  }
+
+  .more {
+    font-size: 12px;
+    margin-left: 12px;
+  }
+}

@@ -6,9 +6,9 @@ import useStores from '@/hooks/useStores'
 
 function Auth({ children }: { children: JSX.Element }) {
   let location = useLocation()
-  const user = useStores('user')
+  const userStore = useStores('user')
 
-  if (!user?.isLogin) {
+  if (!userStore?.isLogin) {
     return <Navigate to="/ids/login" state={{ from: location }} replace />
   }
 

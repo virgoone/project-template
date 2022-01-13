@@ -7,6 +7,7 @@ import {
   IconList,
   IconCheckCircle,
   IconFile,
+  IconUser,
   // IconApps,
 } from '@arco-design/web-react/icon'
 
@@ -123,6 +124,23 @@ export const routes: RouteConfig[] = [
         name: 'menu.exception.500',
         key: 'exception/500',
         componentPath: 'exception/500',
+      },
+    ],
+  },
+  {
+    name: 'menu.user',
+    key: 'user',
+    icon: <IconUser />,
+    children: [
+      {
+        name: 'menu.user.info',
+        key: 'user/info',
+        componentPath: 'user/info',
+      },
+      {
+        name: 'menu.user.setting',
+        key: 'user/setting',
+        componentPath: 'user/setting',
       },
     ],
   },

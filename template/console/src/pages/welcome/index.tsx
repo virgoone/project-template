@@ -9,7 +9,8 @@ import styles from './style/index.scss?modules'
 
 function Welcome() {
   const locale = useLocale()
-  const userInfo = useStores('user')
+  const userStore = useStores('user')
+  const { info: userInfo = {} } = userStore
 
   return (
     <div className={styles.container}>

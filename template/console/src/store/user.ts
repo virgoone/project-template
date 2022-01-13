@@ -5,17 +5,32 @@ class User {
   constructor() {
     makeAutoObservable(this)
   }
-  name?: string
+  loading?: boolean
 
-  avatar?: string
+  token?: string
 
-  job?: string
+  info: {
+    name?: string
 
-  organization?: string
+    avatar?: string
 
-  location?: string
+    job?: string
+    jobName?: string
+    organization?: string
+    organizationName?: string
 
-  email?: string
+    location?: string
+    locationName?: string
+
+    email?: string
+
+    accountId?: string
+    phoneNumber?: string
+    registrationTime?: string
+
+    personalWebsite?: string
+    introduction?: string
+  }
 
   isLogin?: boolean
 
@@ -25,17 +40,15 @@ class User {
   }
 
   getUserInfo() {
+    this.loading = true
     axios.get('/api/user/userInfo').then((res) => {
       const { data } = res
+      console.log('data', data)
 
       runInAction(() => {
-        this.name = data.name
-        this.avatar = data.avatar
-        this.job = data.job
-        this.organization = data.organization
-        this.location = data.location
-        this.email = data.email
+        this.info = data
         this.isLogin = true
+        this.loading = false
       })
     })
   }

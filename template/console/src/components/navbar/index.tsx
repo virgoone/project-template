@@ -39,13 +39,14 @@ function Navbar() {
   const locale = useLocale()
   const navigate = useNavigate()
   const global = useStores('global')
-  const userInfo = useStores('user')
+  const userStore = useStores('user')
+  const { info: userInfo = {} } = userStore
   const { setLang } = useContext(GlobalContext)
 
   const { theme, changeTheme } = global
 
   function logout() {
-    userInfo.doLogout()
+    userStore.doLogout()
     navigate('/ids/login')
   }
 

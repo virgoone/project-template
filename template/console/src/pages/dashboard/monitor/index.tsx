@@ -12,7 +12,7 @@ import './mock'
 import { observer } from 'mobx-react'
 
 function Monitor() {
-  const userInfo = useStores('user')
+  const userStore = useStores('user')
 
   return (
     <div>
@@ -22,7 +22,7 @@ function Monitor() {
         </div>
         <div className={styles['layout-content']}>
           <Space size={12} direction="vertical" style={{ width: '100%' }}>
-            <Studio userInfo={userInfo} />
+            <Studio userInfo={userStore.info} />
             <DataStatistic />
           </Space>
         </div>

@@ -21,7 +21,7 @@ function LoginForm() {
   const [loading, setLoading] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
   const navigate = useNavigate()
-  const user = useStores('user')
+  const userStore = useStores('user')
 
   function afterLoginSuccess(params: Record<string, string>, token: string) {
     // 记住密码
@@ -32,8 +32,8 @@ function LoginForm() {
     }
     // 记录登录状态
     localStorage.setItem('@token', token)
-    user.getUserInfo()
-    user.isLogin = true
+    userStore.getUserInfo()
+    userStore.isLogin = true
     // 跳转首页
     navigate('/')
   }
@@ -74,10 +74,10 @@ function LoginForm() {
   }, [])
 
   useEffect(() => {
-    if (user.isLogin) {
+    if (userStore.isLogin) {
       navigate('/')
     }
-  }, [user])
+  }, [userStore])
 
   return (
     <div className={styles['login-form-wrapper']}>

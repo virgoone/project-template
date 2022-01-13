@@ -6,6 +6,7 @@ import {
   IconSettings,
   IconList,
   IconCheckCircle,
+  IconFile,
   // IconApps,
 } from '@arco-design/web-react/icon'
 
@@ -69,6 +70,18 @@ export const routes: RouteConfig[] = [
         name: 'menu.form.step',
         key: 'form/step',
         componentPath: 'form/step',
+      },
+    ],
+  },
+  {
+    name: 'menu.profile',
+    key: 'profile',
+    icon: <IconFile />,
+    children: [
+      {
+        name: 'menu.profile.basic',
+        key: 'profile/basic',
+        componentPath: 'profile/basic',
       },
     ],
   },

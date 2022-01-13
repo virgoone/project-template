@@ -31,6 +31,6 @@ const i18n = {
     'success.waiting': '未开始',
     'success.processing': '进行中',
   },
-};
+}
 
-export default i18n;
+export default i18n

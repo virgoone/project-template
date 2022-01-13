@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Grid } from '@arco-design/web-react';
-import ProjectCard, { ProjectProps } from './blocks/project';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Grid } from '@arco-design/web-react'
+import ProjectCard, { ProjectProps } from './blocks/project'
 
 function MyProject() {
-  const [data, setData] = useState<ProjectProps[]>(new Array(6).fill({}));
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<ProjectProps[]>(new Array(6).fill({}))
+  const [loading, setLoading] = useState(true)
 
-  const { Row, Col } = Grid;
+  const { Row, Col } = Grid
 
   const getData = async () => {
-    setLoading(true);
+    setLoading(true)
     const { data } = await axios.get('/api/user/projectList').finally(() => {
-      setLoading(false);
-    });
-    setData(data);
-  };
+      setLoading(false)
+    })
+    setData(data)
+  }
 
   useEffect(() => {
-    getData();
-  }, []);
+    getData()
+  }, [])
 
   return (
     <Row gutter={12}>
@@ -37,7 +37,7 @@ function MyProject() {
         </Col>
       ))}
     </Row>
-  );
+  )
 }
 
-export default MyProject;
+export default MyProject

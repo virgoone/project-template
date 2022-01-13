@@ -145,6 +145,6 @@ const i18n = {
     'userSetting.verified.status.success': '已通过',
     'userSetting.verified.status.waiting': '审核中',
   },
-};
+}
 
-export default i18n;
+export default i18n

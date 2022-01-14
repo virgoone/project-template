@@ -8,7 +8,7 @@ import {
   IconCheckCircle,
   IconFile,
   IconUser,
-  // IconApps,
+  IconApps,
 } from '@arco-design/web-react/icon'
 
 export const defaultRoute = 'welcome'
@@ -37,6 +37,23 @@ export const routes: RouteConfig[] = [
         name: 'menu.dashboard.monitor',
         key: 'dashboard/monitor',
         componentPath: 'dashboard/monitor',
+      },
+    ],
+  },
+  {
+    name: 'menu.visualization',
+    key: 'visualization',
+    icon: <IconApps />,
+    children: [
+      {
+        name: 'menu.visualization.dataAnalysis',
+        key: 'visualization/data-analysis',
+        componentPath: 'visualization/data-analysis',
+      },
+      {
+        name: 'menu.visualization.multiDimensionDataAnalysis',
+        key: 'visualization/multi-dimension-data-analysis',
+        componentPath: 'visualization/multi-dimension-data-analysis',
       },
     ],
   },

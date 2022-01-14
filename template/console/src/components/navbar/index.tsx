@@ -105,7 +105,10 @@ function Navbar() {
       </div>
       <ul className={styles.right}>
         <li>
-          <Input.Search className={styles.round} placeholder="Please search" />
+          <Input.Search
+            className={styles.round}
+            placeholder={locale['navbar.search.placeholder']}
+          />
         </li>
         <li>
           <Select

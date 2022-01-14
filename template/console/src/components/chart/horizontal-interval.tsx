@@ -56,7 +56,7 @@ function HorizontalInterval({
           shape="border-radius"
         />
         <Tooltip>
-          {(title: string, items: any[]) => {
+          {(title, items) => {
             return <CustomTooltip title={title} data={items} />
           }}
         </Tooltip>

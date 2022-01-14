@@ -12,7 +12,7 @@ const areaColorMap = [
 
 const lineColorMap = ['#722ED1', '#33D1C9', '#F77234', '#165DFF']
 
-function MutiAreaLine({ data, loading }: { data: any[]; loading: boolean }) {
+function MultiAreaLine({ data, loading }: { data: any[]; loading: boolean }) {
   return (
     <Spin loading={loading} style={{ width: '100%' }}>
       <Chart
@@ -40,7 +40,7 @@ function MutiAreaLine({ data, loading }: { data: any[]; loading: boolean }) {
           shared
           showMarkers={true}
         >
-          {(title: string, items: any[]) => {
+          {(title, items) => {
             return (
               <CustomTooltip
                 title={title}
@@ -60,4 +60,4 @@ function MutiAreaLine({ data, loading }: { data: any[]; loading: boolean }) {
   )
 }
 
-export default MutiAreaLine
+export default MultiAreaLine

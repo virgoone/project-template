@@ -1,8 +1,8 @@
 import React from 'react'
 import { Chart, Line, Axis, Tooltip, Legend, Slider } from 'bizcharts'
 import { Spin } from '@arco-design/web-react'
-import useBizTheme from '@/hooks/useChartTheme'
 import CustomTooltip from './customer-tooltip'
+import useBizTheme from '@/hooks/useChartTheme'
 
 const lineColor = ['#21CCFF', '#313CA9', '#249EFF']
 function PeriodLine({ data, loading }: { data: any[]; loading: boolean }) {
@@ -10,7 +10,6 @@ function PeriodLine({ data, loading }: { data: any[]; loading: boolean }) {
     <Spin loading={loading} style={{ width: '100%' }}>
       <Chart
         theme={useBizTheme()}
-        forceUpdate
         height={370}
         padding={[10, 20, 120, 60]}
         data={data}
@@ -21,7 +20,7 @@ function PeriodLine({ data, loading }: { data: any[]; loading: boolean }) {
         <Line shape="smooth" position="time*rate" color={['name', lineColor]} />
         <Tooltip crosshairs={{ type: 'x' }} showCrosshairs shared>
           {(title, items) => {
-            return <CustomTooltip title={`${title}`} data={items || []} />
+            return <CustomTooltip title={title} data={items} />
           }}
         </Tooltip>
         <Axis

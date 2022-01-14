@@ -92,7 +92,7 @@ setupMock({
     })
 
     // 站内通知
-    Mock.mock(new RegExp('/api/user/notice'), () => {
+    Mock.mock(new RegExp('/api/user/notice'), (): any[] => {
       return []
     })
   },

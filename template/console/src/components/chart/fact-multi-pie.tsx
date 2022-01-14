@@ -2,16 +2,15 @@ import React from 'react'
 import { Chart, Legend, Facet } from 'bizcharts'
 import useBizTheme from '@/hooks/useChartTheme'
 
-interface FactMutiPieProps {
+interface FactMultiPieProps {
   data: any[]
   loading: boolean
   height: number
 }
-function FactMutiPie(props: FactMutiPieProps) {
+function FactMultiPie(props: FactMultiPieProps) {
   return (
     <Chart
       theme={useBizTheme()}
-      forceUpdate
       autoFit
       data={props.data}
       height={props.height || 400}
@@ -64,4 +63,4 @@ function FactMutiPie(props: FactMutiPieProps) {
   )
 }
 
-export default FactMutiPie
+export default FactMultiPie

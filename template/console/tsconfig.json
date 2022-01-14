@@ -5,24 +5,26 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "jsx": "react",
-    "skipLibCheck": true,
     "noImplicitAny": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
+    "allowJs": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "declaration": false,
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2015",
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "allowJs": true,
-    "noEmit": true,
-    "incremental": true,
-    "declarationMap": false
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": ["src", "types", "*.ts", "*.tsx"],
   "exclude": ["node_modules", "public", "dist"]

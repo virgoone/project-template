@@ -9,10 +9,11 @@ import {
 } from '@arco-design/web-react'
 import { FormInstance } from '@arco-design/web-react/es/Form'
 import { IconLock, IconUser } from '@arco-design/web-react/icon'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { observer } from 'mobx-react'
 import useStores from '@/hooks/useStores'
+import { defaultRoute } from '@/routes'
 import styles from './style.scss?modules'
 
 function LoginForm() {
@@ -21,7 +22,11 @@ function LoginForm() {
   const [loading, setLoading] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation()
   const userStore = useStores('user')
+
+  // @ts-ignore
+  const from = location.state?.from?.pathname || `/${defaultRoute}`
 
   function afterLoginSuccess(params: Record<string, string>, token: string) {
     // 记住密码
@@ -35,7 +40,7 @@ function LoginForm() {
     userStore.getUserInfo()
     userStore.isLogin = true
     // 跳转首页
-    navigate('/')
+    navigate(from)
   }
 
   function login(params: Record<string, any>) {
@@ -75,9 +80,11 @@ function LoginForm() {
 
   useEffect(() => {
     if (userStore.isLogin) {
-      navigate('/')
+      navigate(from, {
+        replace: true,
+      })
     }
-  }, [userStore])
+  }, [from, userStore.isLogin])
 
   return (
     <div className={styles['login-form-wrapper']}>

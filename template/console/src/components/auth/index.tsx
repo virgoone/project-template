@@ -5,7 +5,7 @@ import { Navigate, useLocation } from 'react-router-dom'
 import useStores from '@/hooks/useStores'
 
 function Auth({ children }: { children: JSX.Element }) {
-  let location = useLocation()
+  const location = useLocation()
   const userStore = useStores('user')
 
   if (!userStore?.isLogin) {

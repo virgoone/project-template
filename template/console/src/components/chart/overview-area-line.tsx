@@ -63,7 +63,7 @@ function OverviewAreaLine({
             r: 8,
           }}
         >
-          {(title: string, items: any) => {
+          {(title, items) => {
             return (
               <CustomTooltip
                 title={title}

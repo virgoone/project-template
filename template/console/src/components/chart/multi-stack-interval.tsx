@@ -23,7 +23,7 @@ function MultiInterval({ data, loading }: { data: any[]; loading: boolean }) {
           }}
         />
         <Tooltip crosshairs={{ type: 'x' }} showCrosshairs shared>
-          {(title: string, items: any) => {
+          {(title, items) => {
             return <CustomTooltip title={title} data={items} />
           }}
         </Tooltip>

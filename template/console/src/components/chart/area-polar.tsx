@@ -40,7 +40,7 @@ function AreaPolar(props: AreaPolarProps) {
       >
         <Coordinate type="polar" radius={0.8} />
         <Tooltip shared>
-          {(title: string, items: any) => {
+          {(title, items) => {
             return <CustomTooltip title={title} data={items} />
           }}
         </Tooltip>

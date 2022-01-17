@@ -47,22 +47,23 @@ function App() {
     lang,
     setLang,
   }
+  const componentConfig = {
+    Card: {
+      bordered: false,
+    },
+    List: {
+      bordered: false,
+    },
+    Table: {
+      border: false,
+    },
+  }
 
   return (
     <BrowserRouter basename="/">
       <ConfigProvider
         locale={getArcoLocale()}
-        componentConfig={{
-          Card: {
-            bordered: false,
-          },
-          List: {
-            bordered: false,
-          },
-          Table: {
-            border: false,
-          },
-        }}
+        componentConfig={componentConfig}
       >
         <Provider {...store}>
           <GlobalContext.Provider value={contextValue}>

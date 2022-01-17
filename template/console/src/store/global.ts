@@ -12,11 +12,12 @@ function changeTheme(newTheme?: ThemeType) {
     document.body.removeAttribute('arco-theme')
   }
 }
-changeTheme()
 
 class GlobalStore {
   constructor() {
     makeAutoObservable(this)
+    const theme = (localStorage.getItem('arco-theme') || 'light') as ThemeType
+    this.changeTheme(theme)
   }
   theme: ThemeType = defaultTheme as ThemeType
 

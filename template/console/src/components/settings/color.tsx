@@ -9,10 +9,8 @@ import useStores from '@/hooks/useStores'
 import styles from './style/color-panel.scss?modules'
 
 function ColorPanel() {
-  const theme =
-    document.querySelector('body')?.getAttribute('arco-theme') || 'light'
   const store = useStores('global')
-  const { settings, updateSettings } = store
+  const { theme, settings, updateSettings } = store
 
   const locale = useLocale()
   const themeColor = settings.themeColor

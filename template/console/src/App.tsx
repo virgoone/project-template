@@ -9,7 +9,6 @@ import store from '@/store'
 import PageLayout from './layout'
 import Login from './pages/login'
 import Setting from './components/settings'
-import Auth from './components/auth'
 
 function App() {
   const defaultLang = localStorage.getItem('arco-lang') || 'zh-CN'
@@ -38,6 +37,8 @@ function App() {
     if (isLogin) {
       user.getUserInfo()
       user.isLogin = true
+    } else if (window.location.pathname !== '/ids/login') {
+      window.location.href = '/ids/login'
     }
   }, [])
 
@@ -67,14 +68,7 @@ function App() {
           <GlobalContext.Provider value={contextValue}>
             <Routes>
               <Route path="/ids/login" element={<Login />} />
-              <Route
-                path="*"
-                element={
-                  <Auth>
-                    <PageLayout />
-                  </Auth>
-                }
-              />
+              <Route path="*" element={<PageLayout />} />
             </Routes>
             <Setting />
           </GlobalContext.Provider>

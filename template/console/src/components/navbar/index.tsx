@@ -47,7 +47,7 @@ function Navbar() {
 
   function logout() {
     userStore.doLogout()
-    navigate('/ids/login')
+    navigate('/user/login')
   }
 
   function onMenuItemClick(key: string) {

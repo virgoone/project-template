@@ -9,7 +9,7 @@ function Auth({ children }: { children: JSX.Element }) {
   const userStore = useStores('user')
 
   if (!userStore?.isLogin) {
-    return <Navigate to="/ids/login" state={{ from: location }} replace />
+    return <Navigate to="/user/login" state={{ from: location }} replace />
   }
 
   return children

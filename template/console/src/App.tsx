@@ -37,8 +37,8 @@ function App() {
     if (isLogin) {
       user.getUserInfo()
       user.isLogin = true
-    } else if (window.location.pathname !== '/ids/login') {
-      window.location.href = '/ids/login'
+    } else if (window.location.pathname !== '/user/login') {
+      window.location.href = '/user/login'
     }
   }, [])
 
@@ -67,7 +67,7 @@ function App() {
         <Provider {...store}>
           <GlobalContext.Provider value={contextValue}>
             <Routes>
-              <Route path="/ids/login" element={<Login />} />
+              <Route path="/user/login" element={<Login />} />
               <Route path="*" element={<PageLayout />} />
             </Routes>
             <Setting />

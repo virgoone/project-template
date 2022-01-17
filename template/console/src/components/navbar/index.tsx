@@ -57,7 +57,6 @@ function Navbar() {
       Message.info(`You clicked ${key}`)
     }
   }
-  console.log('navbar locale', locale)
 
   const droplist = (
     <Menu onClickMenuItem={onMenuItemClick}>

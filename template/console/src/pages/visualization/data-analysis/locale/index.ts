@@ -33,6 +33,6 @@ const i18n = {
     'dataAnalysis.authorTable.content': '内容量',
     'dataAnalysis.authorTable.click': '点击量',
   },
-};
+}
 
-export default i18n;
+export default i18n

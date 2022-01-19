@@ -1,6 +1,13 @@
-import { Alert, Card, Link, Typography, Tag } from '@arco-design/web-react'
-import { IconDoubleRight } from '@arco-design/web-react/icon'
 import React from 'react'
+import {
+  Alert,
+  Card,
+  Link,
+  Typography,
+  Tag,
+  Skeleton,
+} from '@arco-design/web-react'
+import { IconDoubleRight } from '@arco-design/web-react/icon'
 import { observer } from 'mobx-react'
 import useStores from '@/hooks/useStores'
 import useLocale from './locale/useLocale'
@@ -10,7 +17,7 @@ import styles from './style/index.scss?modules'
 function Welcome() {
   const locale = useLocale()
   const userStore = useStores('user')
-  const { info: userInfo = {} } = userStore
+  const { info: userInfo = {}, loading } = userStore
 
   return (
     <div className={styles.container}>
@@ -19,7 +26,20 @@ function Welcome() {
           {locale['welcome.title.welcome']}
         </Typography.Title>
         <Typography.Text type="secondary">
-          {userInfo.name}, {userInfo.email}
+          {loading ? (
+            <Skeleton
+              text={{
+                rows: 1,
+                style: { width: '100px', height: '20px', marginBottom: '-4px' },
+                width: ['100%'],
+              }}
+              animation
+            />
+          ) : (
+            <>
+              {userInfo.name}, {userInfo.email}
+            </>
+          )}
         </Typography.Text>
       </div>
       <div>

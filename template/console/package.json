@@ -19,7 +19,7 @@
   "dependencies": {
     "@antv/data-set": "^0.11.8",
     "@arco-design/color": "^0.4.0",
-    "@arco-design/web-react": "^2.28.1",
+    "@arco-design/web-react": "^2.28.2",
     "@loadable/component": "^5.15.2",
     "@turf/turf": "^6.5.0",
     "axios": "^0.25.0",

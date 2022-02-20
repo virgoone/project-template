@@ -265,10 +265,10 @@
   dependencies:
     color "^3.1.3"
 
-"@arco-design/web-react@^2.29.0":
-  version "2.29.0"
-  resolved "https://registry.yarnpkg.com/@arco-design/web-react/-/web-react-2.29.0.tgz#e3a5f4280b6b23e453a9cdaba89d8e5df1b9f00d"
-  integrity sha512-5sWsz1SON32xKMkGNZNhgMukGHp6rgnsP1a614tGUoXNmW/hkYL2JvWGl99AczfkgX5VCNskigzYTe4l6INUAA==
+"@arco-design/web-react@^2.29.1":
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/@arco-design/web-react/-/web-react-2.29.1.tgz#bd20ab3837a6f10b5a33ae371763205e8f3cf437"
+  integrity sha512-VJ9T3ACQRsdqoxXJCmlFdcEt8r2tqKQ7I37NspE2SiLWG8yKJ02lCAyFaQ7i8wnf1Lt08pVeVQW1ZPrvQ68/SQ==
   dependencies:
     "@arco-design/color" "^0.4.0"
     "@babel/runtime" "^7.5.5"

@@ -47,7 +47,7 @@
     "@commitlint/config-conventional": "^16.2.1",
     "@lark-org/lark-cli-service": "^2.3.3",
     "@types/loadable__component": "^5.13.4",
-    "@types/lodash": "^4.14.178",
+    "@types/lodash": "^4.14.179",
     "@types/mockjs": "^1.0.6",
     "@types/react": "^17.0.39",
     "@types/react-color": "^3.0.6",

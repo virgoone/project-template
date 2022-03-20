@@ -21,7 +21,7 @@
     "@commitlint/cli": "16.2.3",
     "@commitlint/config-conventional": "16.2.1",
     "@lark-org/lark-cli-service": "^2.3.3",
-    "@types/lodash": "4.14.179",
+    "@types/lodash": "4.14.180",
     "@types/react": "17.0.41",
     "@types/react-dom": "17.0.13",
     "@types/react-router": "5.1.18",

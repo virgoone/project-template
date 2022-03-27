@@ -70,7 +70,7 @@
     "lint-staged": "^12.1.5",
     "lolex": "^6.0.0",
     "penv.macro": "^0.4.0",
-    "prettier": "^2.6.0",
+    "prettier": "^2.6.1",
     "styled-components": "^5.3.3",
     "typescript": "^4.6.2"
   },

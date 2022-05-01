@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "16.2.4",
-    "@commitlint/config-conventional": "16.2.1",
+    "@commitlint/config-conventional": "16.2.4",
     "@lark-org/lark-cli-service": "^2.3.3",
     "@types/lodash": "4.14.182",
     "@types/react": "17.0.43",

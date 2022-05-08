@@ -250,7 +250,7 @@
     fecha "~4.2.0"
     tslib "^2.0.0"
 
-"@antv/util@*", "@antv/util@^2.0.0", "@antv/util@^2.0.7", "@antv/util@^2.0.9", "@antv/util@~2.0.0", "@antv/util@~2.0.12", "@antv/util@~2.0.3", "@antv/util@~2.0.5":
+"@antv/util@2.0.17", "@antv/util@^2.0.0", "@antv/util@^2.0.7", "@antv/util@^2.0.9", "@antv/util@~2.0.0", "@antv/util@~2.0.12", "@antv/util@~2.0.3", "@antv/util@~2.0.5":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@antv/util/-/util-2.0.17.tgz#e8ef42aca7892815b229269f3dd10c6b3c7597a9"
   integrity sha512-o6I9hi5CIUvLGDhth0RxNSFDRwXeywmt6ExR4+RmVAzIi48ps6HUy+svxOCayvrPBN37uE6TAc2KDofRo0nK9Q==
@@ -4777,15 +4777,15 @@ binary-extensions@^2.0.0:
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-bizcharts@^4.1.11:
-  version "4.1.15"
-  resolved "https://registry.yarnpkg.com/bizcharts/-/bizcharts-4.1.15.tgz#f893a613e5d231fc9c5472932c478b6b01b42340"
-  integrity sha512-Tx7gQhtZCxi9k5uOmtp5z36Otw5qaKtpn4rB07ZMtZA82qidCb9aRYLfD6ceQjrrBBaFQt9MSiSP6AjH/Dic8g==
+bizcharts@^4.1.16:
+  version "4.1.16"
+  resolved "https://registry.yarnpkg.com/bizcharts/-/bizcharts-4.1.16.tgz#0dac99a5875314e4328121e0ad23cfbbf3e9b0d0"
+  integrity sha512-AMwbNd2UF1/iPKFSA/T1o2PvtcGlNQWnxGToNdBwHNDmoUgMvxa7GuBNz5NNEt32ftt+Ra4m2fdgqK5mrj8C3Q==
   dependencies:
     "@antv/component" "*"
     "@antv/g2" "4.1.32"
     "@antv/g2plot" "2.3.39"
-    "@antv/util" "*"
+    "@antv/util" "2.0.17"
     "@babel/plugin-transform-modules-commonjs" "^7.12.1"
     "@babel/plugin-transform-runtime" "^7.12.10"
     "@juggle/resize-observer" "^3.3.1"

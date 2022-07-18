@@ -10,11 +10,11 @@
   "scripts": {
     "start": "lark-cli-service start -p 9001",
     "build": "lark-cli-service build",
-    "lint": "concurrently yarn:lint:*",
+    "lint": "concurrently pnpm:lint:*",
     "lint:format": "prettier --write .",
     "lint:code": "eslint src --fix",
     "lint:style": "stylelint 'src/**/*.{css,less}'",
-    "preversion": "yarn lint",
+    "preversion": "pnpm run lint",
     "prepare": "husky install"
   },
   "devDependencies": {

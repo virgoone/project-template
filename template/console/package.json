@@ -27,6 +27,7 @@
     "clsx": "^1.1.1",
     "dayjs": "^1.11.2",
     "history": "^5.3.0",
+    "lodash": "^4.17.21",
     "lottie-web": "^5.9.4",
     "mobx": "^6.5.0",
     "mobx-react": "^7.4.0",
@@ -43,9 +44,10 @@
     "recompose": "^0.30.0"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.18.9",
     "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^16.2.4",
-    "@lark-org/lark-cli-service": "^2.3.3",
+    "@lark-org/lark-cli-service": "^2.4.5",
     "@types/loadable__component": "^5.13.4",
     "@types/lodash": "^4.14.182",
     "@types/mockjs": "^1.0.6",

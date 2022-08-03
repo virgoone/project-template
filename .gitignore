@@ -52,3 +52,6 @@ coverage/
 *.log
 /linters/sass-lint.html
 tsconfig.tsbuildinfo
+yarn.lock
+pnpm-lock.yaml
+package-lock.json

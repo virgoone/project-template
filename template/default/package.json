@@ -18,9 +18,10 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.18.9",
     "@commitlint/cli": "16.3.0",
     "@commitlint/config-conventional": "16.2.4",
-    "@lark-org/lark-cli-service": "^2.3.3",
+    "@lark-org/lark-cli-service": "^2.4.5",
     "@types/lodash": "4.14.182",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",

@@ -1,14 +1,37 @@
 module.exports = {
   extends: 'lark',
   rules: {
+    semi: 0,
+    'react/no-unused-prop-types': 0,
+    'prefer-regex-literals': 0,
+    'no-return-assign': 0,
+    'no-empty': 1,
+    'no-unused-expressions': 1,
+    'array-callback-return': 1,
+    'consistent-return': 1,
+    'import/prefer-default-export': 1,
+    'no-nested-ternary': 1,
+    'compat/compat': 0,
+    'no-param-reassign': 0,
     'react/display-name': 0,
-    'react/destructuring-assignment': 2,
+    'react/require-default-props': 0,
+    'react/jsx-no-bind': 1,
+    'react/destructuring-assignment': 1,
+    'react/no-array-index-key': 1,
+    'react/no-this-in-sfc': 1,
+    'react-hooks/exhaustive-deps': 1,
+    '@typescript-eslint/no-shadow': 1,
+    '@typescript-eslint/no-use-before-define': 1,
+    'promise/catch-or-return': 0,
+    'promise/always-return': 0,
+    'no-promise-executor-return': 0,
+    'no-sequences': 1,
     'import/no-unresolved': [
-      2,
+      1,
       {
-        ignore: ['^@/'] // @ 是设置的路径别名
-      }
-    ]
+        ignore: ['^@/'], // @ 是设置的路径别名
+      },
+    ],
   },
   globals: {
     __DEV__: true,
@@ -18,6 +41,6 @@ module.exports = {
     SENTRY_DSN: true,
     APP_ENV: true,
     SENTRY_RELEASE: true,
-    VERSION: true
-  }
+    VERSION: true,
+  },
 }

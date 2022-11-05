@@ -42,7 +42,7 @@ export default function ListCard() {
   useEffect(() => {
     getData()
   }, [])
-  7
+  
   const getCardList = (
     list: Array<BasicCard & QualityInspection>,
     type: keyof typeof data

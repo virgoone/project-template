@@ -13,6 +13,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { observer } from 'mobx-react'
 import useStores from '@/hooks/useStores'
+import useLocale from './locale/useLocale'
 import { defaultRoute } from '@/routes'
 import styles from './style.scss?modules'
 
@@ -24,6 +25,7 @@ function LoginForm() {
   const navigate = useNavigate()
   const location = useLocation()
   const userStore = useStores('user')
+  const locale = useLocale()
 
   // @ts-ignore
   const from = location.state?.from?.pathname || `/${defaultRoute}`
@@ -88,46 +90,52 @@ function LoginForm() {
 
   return (
     <div className={styles['login-form-wrapper']}>
-      <div className={styles['login-form-title']}>登录 Arco Design Pro</div>
-      <div className={styles['login-form-sub-title']}>登录 Arco Design Pro</div>
+      <div className={styles['login-form-title']}>{locale['login.title']}</div>
+      <div className={styles['login-form-sub-title']}>
+        {locale['login.subtitle']}
+      </div>
       <div className={styles['login-form-error-msg']}>{errorMessage}</div>
       <Form className={styles['login-form']} layout="vertical" ref={formRef}>
         <Form.Item
           field="userName"
-          rules={[{ required: true, message: '用户名不能为空' }]}
+          rules={[
+            { required: true, message: locale['login.form.username.required'] },
+          ]}
         >
           <Input
             prefix={<IconUser />}
-            placeholder="用户名：admin"
+            placeholder={locale['login.form.password.tips']}
             onPressEnter={onSubmitClick}
           />
         </Form.Item>
         <Form.Item
           field="password"
-          rules={[{ required: true, message: '密码不能为空' }]}
+          rules={[
+            { required: true, message: locale['login.form.password.tips'] },
+          ]}
         >
           <Input.Password
             prefix={<IconLock />}
-            placeholder="密码：admin"
+            placeholder={locale['login.form.password.tips']}
             onPressEnter={onSubmitClick}
           />
         </Form.Item>
         <Space size={16} direction="vertical">
           <div className={styles['login-form-password-actions']}>
             <Checkbox checked={rememberPassword} onChange={setRememberPassword}>
-              记住密码
+              {locale['login.form.button.remember-password']}
             </Checkbox>
-            <Link>忘记密码？</Link>
+            <Link>{locale['login.form.button.forgot-password']}？</Link>
           </div>
           <Button type="primary" long onClick={onSubmitClick} loading={loading}>
-            登录
+            {locale['login.form.button.login']}
           </Button>
           <Button
             type="text"
             long
             className={styles['login-form-register-btn']}
           >
-            注册账号
+            {locale['login.form.button.signup']}
           </Button>
         </Space>
       </Form>

@@ -28,13 +28,10 @@
   display: inline-flex;
   align-items: center;
   z-index: 1;
-
-  &-text {
-    margin-left: 4px;
-    margin-right: 4px;
-    font-size: 20px;
-    color: var(--color-fill-1);
-  }
+  width: 150px;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 15px 20px;
 }
 
 .banner {

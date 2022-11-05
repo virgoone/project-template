@@ -1,6 +1,6 @@
 module.exports = {
   variables: {
-    APP_TITLE: '[Lark]',
+    APP_TITLE: '<%= title %>',
 
     SENTRY_DSN: undefined,
 

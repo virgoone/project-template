@@ -6,6 +6,7 @@ export type Locale = {
 
 const i18n: Locale = {
   'en-US': {
+    'app.title': 'The best operating system in the Northern Hemisphere',
     'menu.welcome': 'Welcome',
     'menu.dashboard': 'Dashboard',
     'menu.list': 'List',
@@ -62,6 +63,7 @@ const i18n: Locale = {
     'navbar.search.placeholder': 'Please search',
   },
   'zh-CN': {
+    'app.title': '北半球最好的运营系统',
     'menu.welcome': '欢迎页',
     'menu.dashboard': '仪表盘',
     'menu.list': '列表页',

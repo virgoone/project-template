@@ -42,7 +42,7 @@
     "lolex": "6.0.0",
     "penv.macro": "^0.4.0",
     "prettier": "^2.7.1",
-    "stylelint": "14.16.1",
+    "stylelint": "15.6.3",
     "stylelint-config-standard": "29.0.0",
     "typescript": "5.1.3"
   },

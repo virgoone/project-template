@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="dns-prefetch" href="//cdn.staticfile.org" />
+    <link rel="dns-prefetch" href="//lf26-cdn-tos.bytecdntp.com" />
     <% if(APP_ENV === 'production') {%>
     <link
       rel="apple-touch-icon"
@@ -37,13 +37,13 @@
     <% if (APP_ENV === 'production') { %>
     <link
       rel="preload"
-      href="https://cdn.staticfile.org/react/17.0.2/umd/react.production.min.js"
+      href="https://lf26-cdn-tos.bytecdntp.com/cdn/react/18.2.0/umd/react.production.min.js"
       as="script"
       crossorigin
     />
     <link
       rel="preload"
-      href="https://cdn.staticfile.org/react-dom/17.0.2/umd/react-dom.production.min.js"
+      href="https://lf26-cdn-tos.bytecdntp.com/cdn/react-dom/18.2.0/umd/react-dom.production.min.js"
       as="script"
       crossorigin
     />
@@ -53,7 +53,7 @@
       // Promise polyfill
       window.Promise ||
         document.write(
-          '<script src="https://cdn.staticfile.org/es6-promise/4.1.1/es6-promise.min.js"><\/script>'
+          '<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/es6-promise/4.1.1/es6-promise.min.js"><\/script>'
         )
     </script>
   </head>
@@ -63,11 +63,11 @@
     <noscript>Sorry, we need js to run correctly!</noscript>
     <% if(APP_ENV === 'production') { %>
     <script
-      src="https://cdn.staticfile.org/react/17.0.2/umd/react.production.min.js"
+      src="https://lf26-cdn-tos.bytecdntp.com/cdn/react/18.2.0/umd/react.production.min.js"
       crossorigin
     ></script>
     <script
-      src="https://cdn.staticfile.org/react-dom/17.0.2/umd/react-dom.production.min.js"
+      src="https://lf26-cdn-tos.bytecdntp.com/cdn/react-dom/18.2.0/umd/react-dom.production.min.js"
       crossorigin
     ></script>
     <% } %>

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import './style.scss'
+import './style.less'
 
 export default class Playground extends PureComponent {
   render() {

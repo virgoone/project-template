@@ -1,5 +1,4 @@
 import React from 'react'
-import { ReactComponentLike } from 'prop-types'
 import Loadable from '@/components/loadable'
 import PageFailed from '@/components/page-failed'
 import PageLoading from '@/components/page-loading'
@@ -18,7 +17,7 @@ function PageNotFound() {
 
 interface RouteInitOpts {
   filePath?: string
-  Loading?: ReactComponentLike
+  Loading?: any
 }
 
 function createRoute(path: string, options: RouteInitOpts = {}) {

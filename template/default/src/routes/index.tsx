@@ -1,7 +1,8 @@
 import React from 'react'
-import Loadable, { LoadingComponentProps } from 'react-loadable'
+import Loadable from '@/components/loadable'
 import PageFailed from '@/components/page-failed'
 import PageLoading from '@/components/page-loading'
+import { AjaxError } from '@/components/loadable/Loadable'
 
 export interface RouteConf {
   key?: string
@@ -19,33 +20,35 @@ interface RouteInitOpts {
   Loading?: () => JSX.Element
 }
 
-function RouteLoading(
-  props: LoadingComponentProps,
-  PageLoading: () => JSX.Element
-) {
-  if (props.error) {
-    return <PageFailed code={400} message={props.error} />
-  } else if (props.timedOut) {
-    return <PageFailed code={400} message="加载时间过长..." />
-  } else if (props.pastDelay) {
-    return <PageLoading />
-  } else {
-    return null
-  }
-}
-
 function createRoute(path: string, options: RouteInitOpts = {}) {
   const { filePath = path, Loading = PageLoading } = options
+  const Failed = PageFailed
+  const onError = (err: AjaxError) => {
+    console.error(err)
+  }
 
   if (__DEV__) {
     console.log(`@/pages/${filePath.slice(1)}/page`)
+    const component = Loadable.loadWithInitialProps(
+      require(`@/pages/${filePath.slice(1)}/page`),
+      { codeSplitting: false, Failed, onError, Loading }
+    )
+
+    return {
+      path,
+      component,
+      key: path
+    }
   }
 
-  const component = Loadable({
-    loader: () => import(`@/pages/${filePath.slice(1)}/page`),
-    loading: (props) => RouteLoading(props, Loading),
-    timeout: 10000 // 10s
-  })
+  const component = Loadable.loadWithInitialProps(
+    () =>
+      import(
+        /* webpackChunkName: "[request]" */
+        `@/pages/${filePath.slice(1)}/page`
+      ),
+    { Failed, onError, Loading }
+  )
 
   return {
     path,
@@ -65,7 +68,10 @@ if (__DEV__) {
     ...routes,
     {
       path: '/playground',
-      component: () => import('@/pages/playground/page')
+      component: () =>
+        React.createElement(
+          Loadable.resolveChunk(require('@/pages/playground/page'))
+        )
     }
   ]
 }

@@ -1,6 +1,15 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
+    directory: './template/antd-console'
+    schedule:
+      interval: "weekly"
+      # Check for npm updates on Sundays
+      day: "sunday"
+      time: '08:00'
+      # Use ShangHai Standard Time (UTC +08:00)
+      timezone: 'Asia/Shanghai'
+  - package-ecosystem: "npm"
     directory: './template/console'
     schedule:
       interval: "weekly"

@@ -1,0 +1,78 @@
+@import 'nprogress/nprogress.css';
+@import './typeface';
+@import './var';
+
+html,
+body {
+  font-family: @font-family-base;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  background-color: var(--color-bg-1);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+h5.ant-typography {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+
+.ant-badge.ant-badge-status {
+  .ant-badge-status-text {
+    font-size: 14px;
+  }
+}
+
+.ant-descriptions-row {
+
+  >.ant-descriptions-item-label,
+  .ant-descriptions-item-label-inline {
+    font-weight: normal;
+    color: var(--color-text-2);
+  }
+}
+
+.ant-card.ant-card-size-default {
+  border-radius: 4px;
+}
+
+.chart-wrapper {
+
+  .g2-tooltip {
+    background: linear-gradient(304.17deg,
+        rgb(253 254 255 / 60%) -6.04%,
+        rgb(244 247 252 / 60%) 85.2%) !important;
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    padding: 8px !important;
+    width: 180px !important;
+    opacity: 1 !important;
+
+    .ant-typography {
+      font-size: 12px;
+    }
+  }
+}
+
+body[antd-theme='dark'] {
+  .chart-wrapper {
+
+    .g2-tooltip {
+      background: linear-gradient(304.17deg,
+          rgba(90, 92, 95, 0.6) -6.04%,
+          rgba(87, 87, 87, 0.6) 85.2%) !important;
+      backdrop-filter: blur(10px);
+      border-radius: 6px;
+      box-shadow: none !important;
+    }
+  }
+}
+
+#nprogress .spinner {
+  top: 18px;
+  right: 5px;
+}

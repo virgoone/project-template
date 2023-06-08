@@ -22,7 +22,7 @@
     "@babel/runtime": "^7.22.3",
     "@commitlint/cli": "17.6.5",
     "@commitlint/config-conventional": "17.6.5",
-    "@lark-org/lark-cli": "^1.8.11",
+    "@lark-org/lark-cli": "^1.8.12",
     "@types/lodash": "4.14.195",
     "@types/node": "^20.2.5",
     "@types/react": "18.2.9",

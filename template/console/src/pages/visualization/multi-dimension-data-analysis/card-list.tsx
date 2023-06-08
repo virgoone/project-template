@@ -8,7 +8,7 @@ import {
   Skeleton,
 } from '@arco-design/web-react'
 import cs from 'clsx'
-import { Chart, Line, Interval, Tooltip, Interaction } from 'bizcharts'
+import { Line, Column } from '@ant-design/plots'
 import axios from 'axios'
 import useLocale from '@/hooks/useLocale'
 import locale from './locale'
@@ -49,42 +49,55 @@ function CustomTooltip(props: { items: any[] }) {
   )
 }
 function SimpleLine(props: { chartData: any[] }) {
-  const { chartData } = props
+  const { chartData = [] } = props
   return (
-    <Chart data={chartData} {...basicChartProps}>
-      <Line
-        position="x*y"
-        shape={['name', ['smooth', 'dash']]}
-        color={['name', ['#165DFF', 'rgba(106,161,255,0.3)']]}
-      />
-      <Tooltip shared={false} showCrosshairs={true}>
-        {(_, items) => <CustomTooltip items={items} />}
-      </Tooltip>
-    </Chart>
+    <Line
+      data={chartData}
+      {...basicChartProps}
+      smooth
+      xField="x"
+      yField="y"
+      xAxis={{ title: null, line: null, grid: null, label: null }}
+      yAxis={{ title: null, line: null, grid: null, label: null }}
+      color={['#165DFF', 'rgba(106,161,255,0.3)']}
+      label={null}
+      legend={false}
+      tooltip={{
+        shared: false,
+        showCrosshairs: true,
+        customContent: (_, items) => <CustomTooltip items={items} />,
+      }}
+    />
   )
 }
 
 function SimpleInterval(props: { chartData: any[] }) {
-  const { chartData } = props
+  const { chartData = [] } = props
   return (
-    <Chart data={chartData} {...basicChartProps}>
-      <Interval
-        position="x*y"
-        color={[
-          'x',
-          (xVal) => {
-            if (Number(xVal) % 2 === 0) {
-              return '#86DF6C'
-            }
-            return '#468DFF'
-          },
-        ]}
-      />
-      <Tooltip shared={false}>
-        {(_, items) => <CustomTooltip items={items} />}
-      </Tooltip>
-      <Interaction type="active-region" />
-    </Chart>
+    <Column
+      {...basicChartProps}
+      data={chartData}
+      xField="x"
+      yField="y"
+      seriesField="x"
+      xAxis={{ title: null, line: null, grid: null, label: null }}
+      yAxis={{ title: null, line: null, grid: null, label: null }}
+      // seriesField="name"
+      label={null}
+      legend={false}
+      minColumnWidth={8}
+      maxColumnWidth={8}
+      color={({ x }) => {
+        if (Number(x) % 2 === 0) {
+          return '#86DF6C'
+        }
+        return '#468DFF'
+      }}
+      tooltip={{
+        shared: false,
+        customContent: (_, items) => <CustomTooltip items={items} />,
+      }}
+    />
   )
 }
 

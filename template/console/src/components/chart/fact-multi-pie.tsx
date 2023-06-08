@@ -1,6 +1,6 @@
 import React from 'react'
-import { Chart, Legend, Facet } from 'bizcharts'
 import useBizTheme from '@/hooks/useChartTheme'
+import { Facet } from '@ant-design/plots'
 
 interface FactMultiPieProps {
   data: any[]
@@ -8,58 +8,55 @@ interface FactMultiPieProps {
   height: number
 }
 function FactMultiPie(props: FactMultiPieProps) {
+  const { data = [], height } = props
+
   return (
-    <Chart
+    <Facet
       theme={useBizTheme()}
       autoFit
-      data={props.data}
-      height={props.height || 400}
+      data={data}
+      height={height || 400}
       padding={[0, 0, 10, 0]}
-    >
-      <Legend visible={true} />
-      <Facet
-        fields={['category']}
-        type="rect"
-        showTitle={false}
-        eachView={(view, facet) => {
-          const data = facet.data
-          view.coordinate({
-            type: 'theta',
-            cfg: {
-              radius: 0.8,
-              innerRadius: 0.7,
-            },
-          })
-          view
-            .interval()
-            .adjust('stack')
-            .position('value')
-            .color('type', [
-              '#249eff',
-              '#846BCE',
-              '#21CCFF',
-              ' #86DF6C',
-              '#0E42D2',
-            ])
-            .label('value', {
+      type="rect"
+      fields={['category']}
+      showTitle={false}
+      legend={{
+        position: 'bottom',
+      }}
+      eachView={(_view, facet) => {
+        return {
+          type: 'pie',
+          options: {
+            data: facet.data,
+            angleField: 'value',
+            colorField: 'type',
+            color: ['#249eff', '#846BCE', '#21CCFF', ' #86DF6C', '#0E42D2'],
+            label: {
               content: (content: any) => {
                 return `${(content.value * 100).toFixed(2)} %`
               },
-            }),
-            view.annotation().text({
-              position: ['50%', '46%'],
-              content: data[0].category,
-              style: {
-                fontSize: 14,
-                fontWeight: 500,
-                textAlign: 'center',
+            },
+            radius: 0.8,
+            innerRadius: 0.7,
+            interactions: [
+              {
+                type: 'element-single-selected',
               },
-              offsetY: 10,
-            })
-          view.interaction('element-single-selected')
-        }}
-      />
-    </Chart>
+            ],
+            statistic: {
+              title: false,
+              content: {
+                style: {
+                  fontSize: '16px',
+                  color: 'rgb(--var(color-text-1))',
+                },
+                content: (facet.data[0] as Record<string, any>)?.category,
+              },
+            },
+          },
+        }
+      }}
+    />
   )
 }
 

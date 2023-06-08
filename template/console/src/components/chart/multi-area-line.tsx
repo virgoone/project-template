@@ -1,5 +1,5 @@
 import React from 'react'
-import { Chart, Line, Axis, Legend, Area, Tooltip } from 'bizcharts'
+import { Area } from '@ant-design/plots'
 import { Spin } from '@arco-design/web-react'
 import CustomTooltip from './customer-tooltip'
 
@@ -12,50 +12,57 @@ const areaColorMap = [
 
 const lineColorMap = ['#722ED1', '#33D1C9', '#F77234', '#165DFF']
 
-function MultiAreaLine({ data, loading }: { data: any[]; loading: boolean }) {
+function MultiAreaLine({
+  data = [],
+  loading,
+}: {
+  data: any[]
+  loading: boolean
+}) {
   return (
     <Spin loading={loading} style={{ width: '100%' }}>
-      <Chart
-        height={320}
-        data={data}
-        padding={[10, 0, 30, 30]}
-        autoFit
-        scale={{ time: 'time' }}
-        className={'chart-wrapper'}
-      >
-        <Line
-          shape="smooth"
-          position="time*count"
-          color={['name', lineColorMap]}
-        />
+      {!loading && (
         <Area
-          position="time*count"
-          shape="smooth"
-          color={['name', areaColorMap]}
-          tooltip={false}
-        />
-        <Tooltip
-          crosshairs={{ type: 'x' }}
-          showCrosshairs
-          shared
-          showMarkers={true}
-        >
-          {(title, items) => {
-            return (
-              <CustomTooltip
-                title={title}
-                data={items.sort((a, b) => b.value - a.value)}
-                formatter={(value) => Number(value).toLocaleString()}
-              />
-            )
+          height={320}
+          data={data}
+          padding={[10, 0, 30, 30]}
+          autoFit
+          smooth
+          isStack
+          className={'chart-wrapper'}
+          yField="count"
+          xField="time"
+          seriesField="name"
+          color={lineColorMap}
+          yAxis={{
+            label: { formatter: (value) => `${Number(value) / 100} k` },
           }}
-        </Tooltip>
-        <Axis
-          name="count"
-          label={{ formatter: (value) => `${Number(value) / 100} k` }}
+          legend={false}
+          areaStyle={(item) => {
+            return {
+              smooth: true,
+              fill:
+                areaColorMap[item.name as string] ||
+                'l (90) 0:rgba(17, 126, 255, 0.5)  1:rgba(17, 128, 255, 0)',
+            }
+          }}
+          tooltip={{
+            showCrosshairs: true,
+            shared: true,
+            crosshairs: { type: 'x' },
+            showMarkers: true,
+            customContent: (title: string, items: any) => {
+              return (
+                <CustomTooltip
+                  title={title}
+                  data={items.sort((a: any, b: any) => b.value - a.value)}
+                  formatter={(value) => Number(value).toLocaleString()}
+                />
+              )
+            },
+          }}
         />
-        <Legend visible={false} />
-      </Chart>
+      )}
     </Spin>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Spin } from '@arco-design/web-react'
-import { DonutChart } from 'bizcharts'
 import axios from 'axios'
+import { Pie } from '@ant-design/plots'
 import useLocale from './locale/useLocale'
 
 function PopularContent() {
@@ -31,54 +31,56 @@ function PopularContent() {
       headerStyle={{ borderBottom: 0 }}
     >
       <Spin loading={loading} style={{ display: 'block' }}>
-        <DonutChart
-          autoFit
-          height={340}
-          data={data}
-          radius={0.7}
-          innerRadius={0.65}
-          angleField="count"
-          colorField="type"
-          color={['#21CCFF', '#313CA9', '#249EFF']}
-          interactions={[
-            {
-              type: 'element-single-selected',
-            },
-          ]}
-          tooltip={{ showMarkers: false }}
-          label={{
-            visible: true,
-            type: 'spider',
-            formatter: (v) => `${(v.percent * 100).toFixed(0)}%`,
-            style: {
-              fill: '#86909C',
-              fontSize: 14,
-            },
-          }}
-          legend={{
-            position: 'bottom',
-          }}
-          statistic={{
-            title: {
+        {!loading && (
+          <Pie
+            autoFit
+            data={data}
+            height={340}
+            radius={0.7}
+            innerRadius={0.65}
+            color={['#21CCFF', '#313CA9', '#249EFF']}
+            interactions={[
+              {
+                type: 'element-single-selected',
+              },
+            ]}
+            angleField="count"
+            colorField="type"
+            tooltip={{ showMarkers: false }}
+            label={{
+              // visible: true,
+              type: 'spider',
+              formatter: (v) => `${(v.percent * 100).toFixed(0)}%`,
               style: {
-                fontSize: '14px',
-                lineHeight: 2,
-                color: 'rgb(--var(color-text-1))',
+                fill: '#86909C',
+                fontSize: 14,
               },
-              formatter: () => '内容量',
-            },
-            content: {
-              style: {
-                fontSize: '16px',
-                color: 'rgb(--var(color-text-1))',
+            }}
+            legend={{
+              position: 'bottom',
+            }}
+            statistic={{
+              title: {
+                style: {
+                  fontSize: '14px',
+                  lineHeight: 2,
+                  color: 'rgb(--var(color-text-1))',
+                },
+                formatter: () => '内容量',
               },
-              formatter: (_, data: any[]) => {
-                const sum = data.reduce((a, b) => a + b.count, 0)
-                return Number(sum).toLocaleString()
+              content: {
+                style: {
+                  fontSize: '16px',
+                  color: 'rgb(--var(color-text-1))',
+                },
+                formatter: (_, data: any[]) => {
+                  const sum = data.reduce((a, b) => a + b.count, 0)
+                  return Number(sum).toLocaleString()
+                },
               },
-            },
-          }}
-        />
+            }}
+          />
+        )}
       </Spin>
     </Card>
   )

@@ -1,16 +1,7 @@
 import React from 'react'
 import { Skeleton, Statistic, Typography } from '@arco-design/web-react'
 import cs from 'clsx'
-import {
-  Chart,
-  Line,
-  Interval,
-  Coordinate,
-  Interaction,
-  Tooltip,
-  G2,
-  Legend,
-} from 'bizcharts'
+import { G2, Column, Line, Pie } from '@ant-design/plots'
 
 import { IconArrowRise, IconArrowFall } from '@arco-design/web-react/icon'
 import styles from '../style/public-opinion.less?modules'
@@ -38,23 +29,26 @@ export interface PublicOpinionCardProps {
 function SimpleLine(props: { chartData: any[] }) {
   const { chartData } = props
   return (
-    <Chart data={chartData} {...basicChartProps}>
-      <Line
-        position="x*y"
-        size={3}
-        shape={'smooth'}
-        color={['name', ['#165DFF', 'rgba(106,161,255,0.3)']]}
-        style={{
-          fields: ['name'],
-          callback: (name) => {
-            if (name === '类目2') {
-              return { lineDash: [8, 10] }
-            }
-            return {}
-          },
-        }}
-      />
-    </Chart>
+    <Line
+      {...basicChartProps}
+      data={chartData}
+      smooth
+      tooltip={false}
+      xField="x"
+      yField="y"
+      xAxis={{ title: null, line: null, grid: null, label: null }}
+      yAxis={{ title: null, line: null, grid: null, label: null }}
+      seriesField="name"
+      label={null}
+      legend={false}
+      color={['#165DFF', 'rgba(106,161,255,0.3)']}
+      lineStyle={(item: any) => {
+        if (item.name === '类目2') {
+          return { lineDash: [8, 10], lineWidth: 3 }
+        }
+        return { lineWidth: 3 }
+      }}
+    />
   )
 }
 
@@ -88,21 +82,26 @@ function SimpleInterval(props: { chartData: any[] }) {
   })
 
   return (
-    <Chart data={chartData} {...basicChartProps}>
-      <Interval
-        position="x*y"
-        color={[
-          'x',
-          (xVal) => {
-            if (Number(xVal) % 2 === 0) {
-              return '#2CAB40'
-            }
-            return '#86DF6C'
-          },
-        ]}
-        shape="border-radius"
-      />
-    </Chart>
+    <Column
+      {...basicChartProps}
+      data={chartData}
+      tooltip={false}
+      xField="x"
+      yField="y"
+      seriesField="x"
+      xAxis={{ title: null, line: null, grid: null, label: null }}
+      yAxis={{ title: null, line: null, grid: null, label: null }}
+      // seriesField="name"
+      label={null}
+      legend={false}
+      shape="border-radius"
+      color={({ x }) => {
+        if (Number(x) % 2 === 0) {
+          return '#2CAB40'
+        }
+        return '#86DF6C'
+      }}
+    />
   )
 }
 
@@ -110,19 +109,24 @@ function SimplePie(props: { chartData: any[] }) {
   const { chartData } = props
 
   return (
-    <Chart data={chartData} {...basicChartProps} padding={[0, 20, 0, 0]}>
-      <Coordinate type="theta" radius={0.8} innerRadius={0.7} />
-      <Interval
-        adjust="stack"
-        position="count"
-        shape="sliceShape"
-        color={['name', ['#8D4EDA', '#00B2FF', '#165DFF']]}
-        label={false}
-      />
-      <Tooltip visible={true} />
-      <Legend position="right" />
-      <Interaction type="element-single-selected" />
-    </Chart>
+    <Pie
+      {...basicChartProps}
+      data={chartData}
+      padding={[0, 20, 0, 0]}
+      angleField="count"
+      colorField="name"
+      label={false}
+      radius={0.8}
+      innerRadius={0.7}
+      color={['#8D4EDA', '#00B2FF', '#165DFF']}
+      legend={{ position: 'right' }}
+      statistic={{ title: false, content: false }}
+      interactions={[
+        {
+          type: 'element-single-selected',
+        },
+      ]}
+    />
   )
 }
 

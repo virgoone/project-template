@@ -1,10 +1,10 @@
 import React from 'react'
-import { Chart, Tooltip, Interval, Axis, Coordinate, G2 } from 'bizcharts'
 import { Spin } from '@arco-design/web-react'
+import { Bar, G2 } from '@ant-design/plots'
 import CustomTooltip from './customer-tooltip'
 
 function HorizontalInterval({
-  data,
+  data = [],
   loading,
   height,
 }: {
@@ -41,34 +41,34 @@ function HorizontalInterval({
 
   return (
     <Spin loading={loading} style={{ width: '100%' }}>
-      <Chart
-        height={height || 370}
-        padding="auto"
-        data={data}
-        autoFit
-        className={'chart-wrapper'}
-      >
-        <Coordinate transpose />
-        <Interval
-          color="#4086FF"
-          position="name*count"
-          size={10}
-          shape="border-radius"
-        />
-        <Tooltip>
-          {(title, items) => {
-            return <CustomTooltip title={title} data={items} />
+      {!loading && (
+        <Bar
+          height={height || 370}
+          padding="auto"
+          xField="count"
+          yField="name"
+          xAxis={{
+            label: {
+              formatter(text) {
+                return `${Number(text) / 1000}k`
+              },
+            },
           }}
-        </Tooltip>
-        <Axis
-          name="count"
-          label={{
-            formatter(text) {
-              return `${Number(text) / 1000}k`
+          data={data}
+          autoFit
+          shape="border-radius"
+          maxBarWidth={10}
+          minBarWidth={10}
+          color={'#4086FF'}
+          className={'chart-wrapper'}
+          legend={false}
+          tooltip={{
+            customContent: (title, items) => {
+              return <CustomTooltip title={title} data={items} />
             },
           }}
         />
-      </Chart>
+      )}
     </Spin>
   )
 }

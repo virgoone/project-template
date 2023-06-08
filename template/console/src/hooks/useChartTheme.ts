@@ -1,4 +1,4 @@
-import { G2 } from 'bizcharts'
+import { G2 } from '@ant-design/plots'
 import { useEffect, useState } from 'react'
 import useStores from './useStores'
 

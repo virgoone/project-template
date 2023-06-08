@@ -1,8 +1,8 @@
 import React from 'react'
-import { Chart, Line, Axis, Area, Tooltip, Coordinate, Legend } from 'bizcharts'
 import CustomTooltip from './customer-tooltip'
 import { Spin } from '@arco-design/web-react'
 import DataSet from '@antv/data-set'
+import { Radar } from '@ant-design/plots'
 
 interface AreaPolarProps {
   data: any[]
@@ -11,7 +11,7 @@ interface AreaPolarProps {
   height: number
 }
 function AreaPolar(props: AreaPolarProps) {
-  const { data, loading, fields, height } = props
+  const { data = [], loading, fields, height } = props
 
   const { DataView } = DataSet
   const dv = new DataView().source(data)
@@ -21,62 +21,64 @@ function AreaPolar(props: AreaPolarProps) {
     key: 'category', // key字段
     value: 'score', // value字段
   })
+  const config = {
+    // 开启辅助点
+    point: {
+      size: 2,
+    },
+    meta: {
+      score: {
+        alias: '分数',
+        min: 0,
+        max: 80,
+      },
+    },
+  }
 
   return (
     <Spin loading={loading} style={{ width: '100%' }}>
-      <Chart
-        height={height || 400}
-        padding={0}
-        data={dv.rows}
-        autoFit
-        scale={{
-          score: {
-            min: 0,
-            max: 80,
-          },
-        }}
-        interactions={['legend-highlight']}
-        className={'chart-wrapper'}
-      >
-        <Coordinate type="polar" radius={0.8} />
-        <Tooltip shared>
-          {(title, items) => {
-            return <CustomTooltip title={title} data={items} />
+      {!loading && (
+        <Radar
+          height={height || 200}
+          padding={[30, 0, 30, 0]}
+          data={dv.rows}
+          autoFit
+          className={'chart-wrapper'}
+          xField="item"
+          yField="score"
+          yAxis={{
+            label: false,
           }}
-        </Tooltip>
-        <Line
-          position="item*score"
-          size="2"
-          color={['category', ['#313CA9', '#21CCFF', '#249EFF']]}
-        />
-        <Area
-          position="item*score"
-          tooltip={false}
-          color={[
-            'category',
-            [
+          seriesField="category"
+          color={['#313CA9', '#21CCFF', '#249EFF']}
+          tooltip={{
+            customContent: (title, items) => {
+              return <CustomTooltip title={title} data={items} />
+            },
+          }}
+          area={{
+            color: [
               'rgba(49, 60, 169, 0.4)',
               'rgba(33, 204, 255, 0.4)',
               'rgba(36, 158, 255, 0.4)',
             ],
-          ]}
-        />
-        <Axis name="score" label={false} />
-        <Legend
-          position="right"
-          marker={(_, index) => {
-            return {
-              symbol: 'circle',
-              style: {
-                r: 4,
-                lineWidth: 0,
-                fill: ['#313CA9', '#21CCFF', '#249EFF'][index],
-              },
-            }
           }}
-          name="category"
+          legend={{
+            position: 'right',
+            marker: (_, index) => {
+              return {
+                symbol: 'circle',
+                style: {
+                  r: 4,
+                  lineWidth: 0,
+                  fill: ['#313CA9', '#21CCFF', '#249EFF'][index],
+                },
+              }
+            },
+          }}
+          {...config}
         />
-      </Chart>
+      )}
     </Spin>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../style/blocks.scss?modules'
+import styles from '../style/blocks.less?modules'
 import { Card, Avatar, Typography, Skeleton } from '@arco-design/web-react'
 const { Text, Title } = Typography
 

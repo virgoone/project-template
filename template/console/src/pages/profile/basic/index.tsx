@@ -13,7 +13,7 @@ import axios from 'axios'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
 import ProfileItem from './item'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 import './mock'
 
 function BasicProfile() {

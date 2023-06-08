@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { Button } from '@arco-design/web-react'
-import styles from './style/icon-button.scss?modules'
+import styles from './style/icon-button.less?modules'
 
 function IconButton(
   props: { [x: string]: any; icon: any },

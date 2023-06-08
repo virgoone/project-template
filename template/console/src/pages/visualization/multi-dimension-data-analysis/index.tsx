@@ -8,7 +8,7 @@ import FactMultiPie from '@/components/chart/fact-multi-pie'
 import locale from './locale'
 import DataOverview from './data-overview'
 import CardList from './card-list'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 import './mock'
 

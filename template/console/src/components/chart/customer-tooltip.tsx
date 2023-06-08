@@ -1,6 +1,6 @@
 import React from 'react'
 import { Typography, Badge } from '@arco-design/web-react'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 const { Text } = Typography
 interface TooltipProps {

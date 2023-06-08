@@ -22,7 +22,7 @@ import {
   IconCloseCircleFill,
   IconMore,
 } from '@arco-design/web-react/icon'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 interface CardBlockType {
   type: 'quality' | 'service' | 'rules' | 'all'

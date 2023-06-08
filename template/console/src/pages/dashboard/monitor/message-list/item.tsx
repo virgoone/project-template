@@ -2,7 +2,7 @@ import React from 'react'
 import { Space, Typography } from '@arco-design/web-react'
 import { IconCommand, IconStar } from '@arco-design/web-react/icon'
 import cs from 'clsx'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 export interface Message {
   id?: string

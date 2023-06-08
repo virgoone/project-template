@@ -7,7 +7,7 @@ import Shortcuts from './shortcuts'
 import Announcement from './announcement'
 import Carousel from './carousel'
 import Docs from './docs'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 import './mock'
 
 const { Row, Col } = Grid

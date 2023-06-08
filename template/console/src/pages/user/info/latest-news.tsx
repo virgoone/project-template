@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { List, Typography, Skeleton, Avatar } from '@arco-design/web-react'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 const { Paragraph } = Typography
 interface INews {

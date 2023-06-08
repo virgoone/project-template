@@ -12,7 +12,7 @@ import { observer } from 'mobx-react'
 import useStores from '@/hooks/useStores'
 import useLocale from './locale/useLocale'
 import CodeBlock from './code-block'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function Welcome() {
   const locale = useLocale()

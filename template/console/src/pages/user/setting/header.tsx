@@ -10,7 +10,7 @@ import {
 import { IconCamera, IconPlus } from '@arco-design/web-react/icon'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
-import styles from './style/header.scss?modules'
+import styles from './style/header.less?modules'
 
 export default function Info({
   userInfo = {},

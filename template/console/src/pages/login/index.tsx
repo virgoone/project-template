@@ -4,7 +4,7 @@ import Footer from '../../components/footer'
 import LoginForm from './form'
 import LoginBanner from './banner'
 
-import styles from './style.scss?modules'
+import styles from './style.less?modules'
 
 export default () => {
   useEffect(() => {

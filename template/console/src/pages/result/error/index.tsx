@@ -3,7 +3,7 @@ import { Typography, Result, Button, Link } from '@arco-design/web-react'
 import { IconLink } from '@arco-design/web-react/icon'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function Success() {
   const locale = useLocale(locales)

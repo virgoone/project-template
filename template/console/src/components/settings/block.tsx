@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import useLocale from '@/hooks/useLocale'
 import useStores from '@/hooks/useStores'
 
-import styles from './style/block.scss?modules'
+import styles from './style/block.less?modules'
 
 export interface BlockProps {
   title?: ReactNode

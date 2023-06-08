@@ -1,7 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import { Spin } from '@arco-design/web-react'
-import styles from '@/layout/style.scss?modules'
+import styles from '@/layout/style.less?modules'
 
 // https://github.com/gregberge/loadable-components/pull/226
 function load(fn: any, options: any) {

@@ -6,7 +6,7 @@ import locales from './locale'
 import CardBlock from './card-block'
 import AddCard from './card-add'
 import { QualityInspection, BasicCard } from './interface'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 import './mock'
 

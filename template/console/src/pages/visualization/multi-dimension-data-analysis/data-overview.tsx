@@ -16,7 +16,7 @@ import {
 } from '@arco-design/web-react/icon'
 import useLocale from '@/hooks/useLocale'
 import locale from './locale'
-import styles from './style/data-overview.scss?modules'
+import styles from './style/data-overview.less?modules'
 import MultiAreaLine from '@/components/chart/multi-area-line'
 
 const { Title } = Typography

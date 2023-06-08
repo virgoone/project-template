@@ -13,7 +13,7 @@ import {
 } from 'bizcharts'
 
 import { IconArrowRise, IconArrowFall } from '@arco-design/web-react/icon'
-import styles from '../style/public-opinion.scss?modules'
+import styles from '../style/public-opinion.less?modules'
 
 const { Title, Text } = Typography
 const basicChartProps = {

@@ -6,7 +6,7 @@ import {
   IconUser,
   IconHome,
 } from '@arco-design/web-react/icon'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 interface HeaderProps {
   userInfo?: {

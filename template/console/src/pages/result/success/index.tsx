@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography, Result, Button, Steps } from '@arco-design/web-react'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 const Step = Steps.Step
 

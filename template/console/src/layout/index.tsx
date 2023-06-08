@@ -18,7 +18,7 @@ import Footer from '../components/footer'
 
 import lazyload from '../components/lazyload'
 
-import styles from './style.scss?modules'
+import styles from './style.less?modules'
 
 const MenuItem = Menu.Item
 const SubMenu = Menu.SubMenu

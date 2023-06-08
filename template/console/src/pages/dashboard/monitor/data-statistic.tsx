@@ -2,7 +2,7 @@ import { Button, Card, Radio, Tabs } from '@arco-design/web-react'
 import React from 'react'
 import useLocale from './locale/useLocale'
 import DataStatisticList from './data-statistic-list'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 export default function DataStatistic() {
   const locale = useLocale()

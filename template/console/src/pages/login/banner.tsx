@@ -2,7 +2,7 @@ import React from 'react'
 import { Carousel } from '@arco-design/web-react'
 import bannerImage from '../../assets/login-banner.png'
 
-import styles from './style.scss?modules'
+import styles from './style.less?modules'
 
 export default function LoginBanner() {
   const data = [

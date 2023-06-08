@@ -1,7 +1,7 @@
 import React from 'react'
 import { Result } from '@arco-design/web-react'
 import MessageItem, { Message } from './item'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 interface MessageListProps {
   data: Message[]

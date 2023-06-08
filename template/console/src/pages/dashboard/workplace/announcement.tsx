@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, Card, Skeleton, Tag } from '@arco-design/web-react'
 import useLocale from './locale/useLocale'
-import styles from './style/announcement.scss?modules'
+import styles from './style/announcement.less?modules'
 
 function Announcement() {
   const [data, setData] = useState<any[]>([])

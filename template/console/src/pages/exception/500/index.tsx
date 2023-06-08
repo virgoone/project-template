@@ -2,7 +2,7 @@ import React from 'react'
 import { Result, Button } from '@arco-design/web-react'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function Exception500() {
   const locale = useLocale(locales)

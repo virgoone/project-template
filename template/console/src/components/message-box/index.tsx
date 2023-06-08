@@ -17,7 +17,7 @@ import {
 } from '@arco-design/web-react/icon'
 import useLocale from '@/hooks/useLocale'
 import MessageList, { MessageListType } from './list'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function DropContent() {
   const locale = useLocale()

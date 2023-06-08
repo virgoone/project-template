@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Card } from '@arco-design/web-react'
 import useLocale from './locale/useLocale'
-import styles from './style/docs.scss?modules'
+import styles from './style/docs.less?modules'
 
 const links = {
   react: 'https://arco.design/react/docs/start',

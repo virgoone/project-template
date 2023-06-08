@@ -9,7 +9,7 @@ import {
   Tag,
 } from '@arco-design/web-react'
 import useLocale from '@/hooks/useLocale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 export interface MessageItemData {
   id: string

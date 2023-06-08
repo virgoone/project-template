@@ -6,7 +6,7 @@ import { observer } from 'mobx-react'
 import useLocale from '@/hooks/useLocale'
 import useStores from '@/hooks/useStores'
 
-import styles from './style/color-panel.scss?modules'
+import styles from './style/color-panel.less?modules'
 
 function ColorPanel() {
   const store = useStores('global')

@@ -8,7 +8,7 @@ import {
   IconFire,
 } from '@arco-design/web-react/icon'
 import useLocale from './locale/useLocale'
-import styles from './style/shortcuts.scss?modules'
+import styles from './style/shortcuts.less?modules'
 
 function Shortcuts() {
   const locale = useLocale()

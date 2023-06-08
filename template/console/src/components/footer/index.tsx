@@ -3,7 +3,7 @@ import { Layout } from '@arco-design/web-react'
 import { FooterProps } from '@arco-design/web-react/es/Layout/interface'
 import cs from 'clsx'
 import useLocale from '@/hooks/useLocale'
-import styles from './style.scss?modules'
+import styles from './style.less?modules'
 
 const { Footer } = Layout
 

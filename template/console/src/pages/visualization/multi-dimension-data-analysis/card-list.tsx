@@ -14,7 +14,7 @@ import useLocale from '@/hooks/useLocale'
 import locale from './locale'
 
 import { IconArrowRise, IconArrowFall } from '@arco-design/web-react/icon'
-import styles from './style/card-block.scss?modules'
+import styles from './style/card-block.less?modules'
 
 const { Row, Col } = Grid
 const { Title, Text } = Typography

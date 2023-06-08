@@ -11,7 +11,7 @@ import axios from 'axios'
 import useLocale from '@/hooks/useLocale'
 import SearchForm from './form'
 import locales from './locale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 import './mock'
 import { getColumns } from './constants'
 

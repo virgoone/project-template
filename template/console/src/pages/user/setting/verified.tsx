@@ -12,7 +12,7 @@ import {
 import useLocale from '@/hooks/useLocale'
 import axios from 'axios'
 import locales from './locale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function Verified() {
   const locale = useLocale(locales)

@@ -11,7 +11,7 @@ import { IconDownload, IconFaceSmileFill } from '@arco-design/web-react/icon'
 import axios from 'axios'
 import useLocale from './locale/useLocale'
 import MessageList from './message-list'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 export default function ChatPanel() {
   const locale = useLocale()

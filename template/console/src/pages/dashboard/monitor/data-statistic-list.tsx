@@ -1,7 +1,7 @@
 import { Table, Tag, Typography } from '@arco-design/web-react'
 import React from 'react'
 import useLocale from './locale/useLocale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 export default function QuickOperation() {
   const locale = useLocale()

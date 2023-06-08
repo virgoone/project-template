@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Tooltip, Message } from '@arco-design/web-react'
 import { IconCopy } from '@arco-design/web-react/icon'
 import clipboard from '../../utils/clipboard'
-import styles from './style/code-block.scss?modules'
+import styles from './style/code-block.less?modules'
 
 interface CodeBlockProps {
   code: string

@@ -13,7 +13,7 @@ import OverviewAreaLine from '@/components/chart/overview-area-line'
 import useStores from '@/hooks/useStores'
 
 import useLocale from './locale/useLocale'
-import styles from './style/overview.scss?modules'
+import styles from './style/overview.less?modules'
 import { ReactComponent as IconCalendar } from './assets/calendar.svg'
 import { ReactComponent as IconComments } from './assets/comments.svg'
 import { ReactComponent as IconContent } from './assets/content.svg'

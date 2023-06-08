@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { ReactComponent as IconText } from './icons/text.svg'
 import { ReactComponent as IconHorizontalVideo } from './icons/horizontal.svg'
 import { ReactComponent as IconVerticalVideo } from './icons/vertical.svg'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 const { Text } = Typography
 

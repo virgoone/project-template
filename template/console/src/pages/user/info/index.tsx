@@ -16,7 +16,7 @@ import UserInfoHeader from './header'
 import MyProject from './my-projects'
 import MyTeam from './my-team'
 import LatestNews from './latest-news'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 import './mock'
 
 const { Title } = Typography

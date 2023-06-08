@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import qs from 'query-string'
 import loadLottie from '@/utils/lottie'
-import './style.scss'
+import './style.less'
 
 export default function PageFailed() {
   const { message = '', httpCode, code } = qs.parse(window.location.search)

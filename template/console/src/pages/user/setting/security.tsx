@@ -5,7 +5,7 @@ import { Button } from '@arco-design/web-react'
 import useStores from '@/hooks/useStores'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function Security() {
   const locale = useLocale(locales)

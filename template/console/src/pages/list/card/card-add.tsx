@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from '@arco-design/web-react'
 import cs from 'clsx'
 import { IconPlus } from '@arco-design/web-react/icon'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 interface AddCardProps {
   description?: string

@@ -7,7 +7,7 @@ import DataStatistic from './data-statistic'
 import StudioStatus from './studio-status'
 import QuickOperation from './quick-operation'
 import StudioInformation from './studio-information'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 import './mock'
 import { observer } from 'mobx-react'
 

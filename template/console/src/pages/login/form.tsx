@@ -15,7 +15,7 @@ import { observer } from 'mobx-react'
 import useStores from '@/hooks/useStores'
 import useLocale from './locale/useLocale'
 import { defaultRoute } from '@/routes'
-import styles from './style.scss?modules'
+import styles from './style.less?modules'
 
 function LoginForm() {
   const formRef = useRef<FormInstance>(null)

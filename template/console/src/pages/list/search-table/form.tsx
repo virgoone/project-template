@@ -13,7 +13,7 @@ import locales from './locale'
 import useLocale from '@/hooks/useLocale'
 import { IconRefresh, IconSearch } from '@arco-design/web-react/icon'
 import { ContentType, FilterType, Status } from './constants'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 const { Row, Col } = Grid
 const { useForm } = Form

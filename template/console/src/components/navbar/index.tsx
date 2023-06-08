@@ -33,7 +33,7 @@ import IconButton from './icon-button'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import MessageBox from '../message-box'
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function Navbar() {
   const locale = useLocale()

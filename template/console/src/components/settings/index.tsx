@@ -10,7 +10,7 @@ import clipboard from '@/utils/clipboard'
 import Block from './block'
 import ColorPanel from './color'
 
-import styles from './style/index.scss?modules'
+import styles from './style/index.less?modules'
 
 function Setting() {
   const [visible, setVisible] = useState(false)

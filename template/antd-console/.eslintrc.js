@@ -6,6 +6,7 @@ module.exports = {
     'prefer-regex-literals': 0,
     'no-return-assign': 0,
     'no-empty': 1,
+    'no-plusplus': 1,
     'no-unused-expressions': 1,
     'array-callback-return': 1,
     'consistent-return': 1,

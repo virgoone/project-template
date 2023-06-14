@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 interface Window {
   __webpack_public_path__: string
   __APP_LOADED__: boolean

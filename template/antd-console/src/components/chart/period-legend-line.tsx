@@ -6,6 +6,7 @@ import { Line } from '@ant-design/plots'
 
 const lineColor = ['#21CCFF', '#313CA9', '#249EFF']
 function PeriodLine({ data = [], loading }: { data: any[]; loading: boolean }) {
+  const theme = useBizTheme()
   return (
     <Spin spinning={loading} style={{ width: '100%' }}>
       {!loading && (
@@ -26,7 +27,7 @@ function PeriodLine({ data = [], loading }: { data: any[]; loading: boolean }) {
             },
           }}
           padding={[10, 20, 120, 60]}
-          theme={useBizTheme()}
+          theme={theme}
           className={'chart-wrapper'}
           tooltip={{
             showCrosshairs: true,

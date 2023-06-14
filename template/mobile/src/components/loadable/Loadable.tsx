@@ -167,12 +167,13 @@ class Loadable extends PureComponent<LoadableProps, LoadableState> {
       loader,
       loading,
       failed,
-      timeout = 10000,
+      timeout = 15000,
       delay = 200,
       render,
       onError,
       ...restProps
     } = this.props
+    console.log('isLoading-->', error, pastDelay, isLoading)
 
     if (timedOut) {
       const message = `ERR_TIMED_OUT(${timedOut})`

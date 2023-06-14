@@ -28,7 +28,7 @@ export default function loadWithInitialProps(
     onError,
     Loading,
     Failed,
-    timeout = 10000,
+    timeout = 15000,
     codeSplitting = true,
   } = options
 

@@ -37,6 +37,7 @@ export default function loadWithInitialProps(
       ? await (loader as LoadableLoaderHandle)()
       : (loader as ESModule)
     const component = resolveChunk(loaded)
+    console.log('component-->', component, component.getInitialProps)
 
     if (component && component.getInitialProps) {
       const data = await component.getInitialProps(props)

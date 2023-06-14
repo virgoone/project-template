@@ -3,10 +3,6 @@ import './style.less'
 
 export default class Playground extends PureComponent {
   render() {
-    return (
-      <div className="playground-page">
-        playground
-      </div>
-    )
+    return <div className="playground-page">playground</div>
   }
 }

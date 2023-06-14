@@ -1,17 +1,6 @@
 .page-loading {
-  @keyframes wobble {
-    0%,
-    100% {
-      transform: translateX(-90%);
-    }
-
-    50% {
-      transform: translateX(90%);
-    }
-  }
-
   &-wrapper {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -21,40 +10,62 @@
     justify-content: center;
   }
 
-  &-line-wobble {
-    --uib-size: 80px;
-    --uib-speed: 1.55s;
-    --uib-color: black;
-    --uib-line-weight: 5px;
-    position: relative;
+  &-lottie {
+    width: 300px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: var(--uib-line-weight);
-    width: var(--uib-size);
-    border-radius: calc(var(--uib-line-weight) / 2);
-    overflow: hidden;
-    transform: translate3d(0, 0, 0);
+    flex-direction: column;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: var(--uib-color);
-      opacity: 0.1;
+    @keyframes grow {
+
+      0%,
+      100% {
+        transform: scaleY(0.3);
+      }
+
+      50% {
+        transform: scaleY(1);
+      }
     }
 
-    &::after {
-      content: '';
-      height: 100%;
-      width: 100%;
-      border-radius: calc(var(--uib-line-weight) / 2);
-      animation: wobble var(--uib-speed) ease-in-out infinite;
-      transform: translateX(-90%);
-      background-color: var(--uib-color);
+    .waveform {
+      --lark-size: var(--loading-size, 40px);
+      --lark-speed: var(--loading-speed, 1s);
+      --lark-color: var(--loading-color, black);
+      --lark-line-weight: var(--loading-line-weight, 3.5px);
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      width: var(--lark-size);
+      height: calc(var(--lark-size) * 0.9);
+
+      &__bar {
+        width: var(--lark-line-weight);
+        height: 100%;
+        background-color: var(--lark-color);
+
+        &:nth-child(1) {
+          animation: grow var(--lark-speed) ease-in-out calc(var(--lark-speed) * -0.45) infinite;
+        }
+
+        &:nth-child(2) {
+          animation: grow var(--lark-speed) ease-in-out calc(var(--lark-speed) * -0.3) infinite;
+        }
+
+        &:nth-child(3) {
+          animation: grow var(--lark-speed) ease-in-out calc(var(--lark-speed) * -0.15) infinite;
+        }
+
+        &:nth-child(4) {
+          animation: grow var(--lark-speed) ease-in-out infinite;
+        }
+      }
     }
+
+
   }
 }

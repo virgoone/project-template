@@ -7,19 +7,65 @@
     right: 0;
     display: flex;
     align-items: center;
-    flex-direction: column;
-  }
-
-  &-text {
-    font-size: 15px;
-    font-weight: 600;
-    color: #7c7a81;
-    text-align: center;
-    margin-bottom: 15px;
+    justify-content: center;
   }
 
   &-lottie {
-    max-width: 300px;
-    min-height: 306px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @keyframes grow {
+
+      0%,
+      100% {
+        transform: scaleY(0.3);
+      }
+
+      50% {
+        transform: scaleY(1);
+      }
+    }
+
+    .waveform {
+      --lark-size: var(--loading-size, 40px);
+      --lark-speed: var(--loading-speed, 1s);
+      --lark-color: var(--loading-color, black);
+      --lark-line-weight: var(--loading-line-weight, 3.5px);
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      width: var(--lark-size);
+      height: calc(var(--lark-size) * 0.9);
+
+      &__bar {
+        width: var(--lark-line-weight);
+        height: 100%;
+        background-color: var(--lark-color);
+
+        &:nth-child(1) {
+          animation: grow var(--lark-speed) ease-in-out calc(var(--lark-speed) * -0.45) infinite;
+        }
+
+        &:nth-child(2) {
+          animation: grow var(--lark-speed) ease-in-out calc(var(--lark-speed) * -0.3) infinite;
+        }
+
+        &:nth-child(3) {
+          animation: grow var(--lark-speed) ease-in-out calc(var(--lark-speed) * -0.15) infinite;
+        }
+
+        &:nth-child(4) {
+          animation: grow var(--lark-speed) ease-in-out infinite;
+        }
+      }
+    }
+
+
   }
 }

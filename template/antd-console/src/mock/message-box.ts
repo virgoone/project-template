@@ -53,7 +53,7 @@ const getMessageList = () => {
       content: '宁静提交于 2021-11-05，需要您在 2011-11-07之前审批',
       tag: {
         text: '进行中',
-        color: 'arcoblue',
+        color: 'geekblue',
       },
     },
     {

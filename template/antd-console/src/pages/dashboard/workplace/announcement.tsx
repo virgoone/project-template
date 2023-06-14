@@ -34,9 +34,9 @@ function Announcement() {
       case 'info':
         return 'cyan'
       case 'notice':
-        return 'arcoblue'
+        return 'geekblue'
       default:
-        return 'arcoblue'
+        return 'geekblue'
     }
   }
 

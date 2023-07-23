@@ -21,7 +21,7 @@
   "devDependencies": {
     "@babel/runtime": "^7.22.3",
     "@commitlint/cli": "17.6.7",
-    "@commitlint/config-conventional": "17.6.6",
+    "@commitlint/config-conventional": "17.6.7",
     "@lark-org/lark-cli": "^1.8.13",
     "@types/lodash": "4.14.195",
     "@types/node": "^20.2.5",

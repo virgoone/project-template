@@ -57,7 +57,7 @@
     "react-document-title": "2.0.3",
     "react-dom": "^18.2.0",
     "react-router": "6.20.0",
-    "react-router-dom": "6.18.0"
+    "react-router-dom": "6.20.0"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": "eslint src --fix",

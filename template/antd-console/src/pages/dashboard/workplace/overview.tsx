@@ -2,10 +2,9 @@ import React, { useState, useEffect, ReactNode } from 'react'
 import { Row, Col, Typography, Divider, Skeleton } from 'antd'
 import axios from 'axios'
 import Link from '@/components/link'
-import { observer } from 'mobx-react'
 import { CaretUpOutlined } from '@ant-design/icons'
 import OverviewAreaLine from '@/components/chart/overview-area-line'
-import useStores from '@/hooks/useStores'
+import { useModel } from '@/store'
 
 import useLocale from './locale/useLocale'
 import styles from './style/overview.less?modules'
@@ -58,8 +57,7 @@ function Overview() {
   const [loading, setLoading] = useState(true)
   const locale = useLocale()
 
-  const userStore = useStores('user')
-  const { info: userInfo = {} } = userStore
+  const userInfo = useModel((state) => state.info)
   const fetchData = () => {
     setLoading(true)
     axios
@@ -150,4 +148,4 @@ function Overview() {
   )
 }
 
-export default observer(Overview)
+export default Overview

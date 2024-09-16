@@ -1,6 +1,6 @@
 import { Space } from 'antd'
 import React from 'react'
-import useStores from '@/hooks/useStores'
+import { useModel } from '@/store'
 import ChatPanel from './chat-panel'
 import Studio from './studio'
 import DataStatistic from './data-statistic'
@@ -9,10 +9,9 @@ import QuickOperation from './quick-operation'
 import StudioInformation from './studio-information'
 import styles from './style/index.less?modules'
 import './mock'
-import { observer } from 'mobx-react'
 
 function Monitor() {
-  const userStore = useStores('user')
+  const userInfo = useModel(state => state.info)
 
   return (
     <div>
@@ -22,7 +21,7 @@ function Monitor() {
         </div>
         <div className={styles['layout-content']}>
           <Space size={12} direction="vertical" style={{ width: '100%' }}>
-            <Studio userInfo={userStore.info} />
+            <Studio userInfo={userInfo} />
             <DataStatistic />
           </Space>
         </div>
@@ -37,4 +36,4 @@ function Monitor() {
     </div>
   )
 }
-export default observer(Monitor)
+export default Monitor

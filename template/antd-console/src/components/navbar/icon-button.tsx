@@ -14,7 +14,7 @@ function IconButton(
       className={styles['icon-button']}
       icon={icon}
       shape="circle"
-      type="ghost"
+      type="default"
       {...rest}
     />
   )

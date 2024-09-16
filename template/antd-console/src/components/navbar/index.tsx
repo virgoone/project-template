@@ -1,40 +1,37 @@
-import React, { useContext } from 'react'
-import { Tooltip, Avatar, Select, Dropdown, message, Input } from 'antd'
+import { GlobalContext } from '@/globals/context'
+import useLocale from '@/hooks/useLocale'
+import defaultLocale from '@/locale'
+import { useModel } from '@/store'
 import {
-  PoweroffOutlined,
-  InteractionOutlined,
+  BellOutlined,
   DashboardOutlined,
   ExperimentOutlined,
-  UserOutlined,
+  InteractionOutlined,
+  PoweroffOutlined,
   SettingOutlined,
-  BellOutlined,
+  UserOutlined,
 } from '@ant-design/icons'
-import { observer } from 'mobx-react'
+
+import { Avatar, Dropdown, Input, message, Select, Tooltip } from 'antd'
+import React, { useContext } from 'react'
+
 import { useNavigate } from 'react-router-dom'
-
-import useLocale from '@/hooks/useLocale'
-import useStores from '@/hooks/useStores'
-import defaultLocale, { i18nType } from '@/locale'
-import { GlobalContext } from '@/globals/context'
+import type { i18nType } from '@/locale'
 import type { MenuProps } from 'antd'
-import IconButton from './icon-button'
-
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import MessageBox from '../message-box'
+import IconButton from './icon-button'
 import styles from './style/index.less?modules'
 
 function Navbar() {
   const locale = useLocale()
   const navigate = useNavigate()
-  const global = useStores('global')
-  const userStore = useStores('user')
-  const { info: userInfo = {} } = userStore
+  const store = useModel((state) => state)
+  const { info: userInfo = {}, theme } = store
   const { setLang } = useContext(GlobalContext)
 
-  const { theme, changeTheme } = global
-
   function logout() {
-    userStore.doLogout()
+    // dispatch(logout())
     navigate('/user/login')
   }
 
@@ -167,7 +164,7 @@ function Navbar() {
                 )
               }
               onClick={() => {
-                changeTheme(theme === 'light' ? 'dark' : 'light')
+                store.changeTheme(theme === 'light' ? 'dark' : 'light')
                 message.info('主题切换成功，将在刷新页面后生效')
               }}
             />
@@ -193,4 +190,4 @@ function Navbar() {
   )
 }
 
-export default observer(Navbar)
+export default Navbar

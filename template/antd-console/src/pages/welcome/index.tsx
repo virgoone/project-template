@@ -2,16 +2,16 @@ import React from 'react'
 import { Alert, Card, Typography, Tag, Skeleton } from 'antd'
 import Link from '@/components/link'
 import { DoubleRightOutlined } from '@ant-design/icons'
-import { observer } from 'mobx-react'
-import useStores from '@/hooks/useStores'
+import { useModel } from '@/store'
 import useLocale from './locale/useLocale'
 import CodeBlock from './code-block'
 import styles from './style/index.less?modules'
 
 function Welcome() {
   const locale = useLocale()
-  const userStore = useStores('user')
-  const { info: userInfo = {}, loading } = userStore
+  const store = useModel(state => state)
+  const { info: userInfo = {}, loading } = store
+
 
   return (
     <div className={styles.container}>
@@ -85,4 +85,4 @@ function Welcome() {
   )
 }
 
-export default observer(Welcome)
+export default Welcome

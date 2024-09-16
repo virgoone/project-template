@@ -1,18 +1,17 @@
+import { useModel } from '@/store'
 import React from 'react'
-import { observer } from 'mobx-react'
-import { Navigate, useLocation } from 'react-router-dom'
 
-import useStores from '@/hooks/useStores'
+import { Navigate, useLocation } from 'react-router-dom'
 
 function Auth({ children }: { children: JSX.Element }) {
   const location = useLocation()
-  const userStore = useStores('user')
+  const [isLogin] = useModel((state) => [state.isLogin])
 
-  if (!userStore?.isLogin) {
+  if (!isLogin) {
     return <Navigate to="/user/login" state={{ from: location }} replace />
   }
 
   return children
 }
 
-export default observer(Auth)
+export default Auth

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { observer } from 'mobx-react'
 import { Card, Tabs } from 'antd'
 import useLocale from '@/hooks/useLocale'
-import useStores from '@/hooks/useStores'
+import { useModel } from '@/store'
 import locales from './locale'
 import InfoHeader from './header'
 import InfoForm from './info'
@@ -12,8 +11,8 @@ import './mock'
 
 function UserInfo() {
   const locale = useLocale(locales)
-  const userStore = useStores('user')
-  const { info: userInfo = {}, loading } = userStore
+  const store = useModel(state => state)
+  const { info: userInfo = {}, loading } = store
   const [activeTab, setActiveTab] = useState('basic')
 
   return (
@@ -49,4 +48,4 @@ function UserInfo() {
   )
 }
 
-export default observer(UserInfo)
+export default UserInfo

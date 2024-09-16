@@ -18,7 +18,7 @@ function Success() {
           title={locale['success.result.title']}
           subTitle={locale['success.result.subTitle']}
           extra={[
-            <Button key="again" type="ghost" style={{ marginRight: 16 }}>
+            <Button key="again" ghost style={{ marginRight: 16 }}>
               {locale['success.result.printResult']}
             </Button>,
             <Button key="back" type="primary">

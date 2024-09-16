@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { observer } from 'mobx-react'
 import { Typography, Row, Col, Button, Result, Skeleton, Card } from 'antd'
-import useStores from '@/hooks/useStores'
+import { useModel } from '@/store'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
 import UserInfoHeader from './header'
@@ -15,8 +14,8 @@ import './mock'
 const { Title } = Typography
 function UserInfo() {
   const locale = useLocale(locales)
-  const userStore = useStores('user')
-  const { info: userInfo = {}, loading } = userStore
+  const store = useModel(state => state)
+  const { info: userInfo = {}, loading } = store
 
   const [noticeLoading, setNoticeLoading] = useState(false)
 
@@ -85,4 +84,4 @@ function UserInfo() {
   )
 }
 
-export default observer(UserInfo)
+export default UserInfo

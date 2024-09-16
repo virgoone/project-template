@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Provider } from 'mobx-react'
-import { ConfigProvider, theme as antdTheme } from 'antd'
-import zhCN from 'antd/locale/zh_CN'
-import enUS from 'antd/locale/en_US'
-
+import { IconPrefix, Prefix } from '@/constants/config'
 import { GlobalContext } from '@/globals/context'
-import store from '@/store'
+import { useModel } from '@/store'
+import { theme as antdTheme, ConfigProvider } from 'antd'
+import enUS from 'antd/locale/en_US'
+import zhCN from 'antd/locale/zh_CN'
+
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageLayout from './layout'
 import Login from './pages/login'
+import { QueryProvider } from './query-provider'
 
 function App() {
   const defaultLang = localStorage.getItem('antd-lang') || 'zh-CN'
   const [lang, setLang] = useState(defaultLang)
-
-  const { user, global } = store
-
+  const store = useModel((state) => state)
   function getLocale() {
     switch (lang) {
       case 'zh-CN':
@@ -30,45 +29,43 @@ function App() {
   useEffect(() => {
     localStorage.setItem('antd-lang', lang)
   }, [lang])
-
   useEffect(() => {
-    const isLogin = localStorage.getItem('@token')
-
-    if (isLogin) {
-      user.getUserInfo()
-      user.isLogin = true
+    if (!!localStorage.getItem('@@token')) {
+      store.init()
     } else if (window.location.pathname !== '/user/login') {
       window.location.href = '/user/login'
     }
   }, [])
 
   const contextValue = {
-    user,
+    user: store.info,
     lang,
     setLang,
   }
 
   return (
-    <BrowserRouter basename="/">
+    <QueryProvider>
       <ConfigProvider
         locale={getLocale()}
+        prefixCls={Prefix}
+        iconPrefixCls={IconPrefix}
         theme={{
           algorithm:
-            global.theme === 'light'
+            store.theme === 'light'
               ? antdTheme.defaultAlgorithm
               : antdTheme.darkAlgorithm,
         }}
       >
-        <Provider {...store}>
-          <GlobalContext.Provider value={contextValue}>
+        <GlobalContext.Provider value={contextValue}>
+          <BrowserRouter basename="/">
             <Routes>
               <Route path="/user/login" element={<Login />} />
               <Route path="*" element={<PageLayout />} />
             </Routes>
-          </GlobalContext.Provider>
-        </Provider>
+          </BrowserRouter>
+        </GlobalContext.Provider>
       </ConfigProvider>
-    </BrowserRouter>
+    </QueryProvider>
   )
 }
 

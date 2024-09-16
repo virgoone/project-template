@@ -1,6 +1,6 @@
+import { useModel } from '@/store'
 import { G2 } from '@ant-design/plots'
 import { useEffect, useState } from 'react'
-import useStores from './useStores'
 
 const defaultDarkTheme = G2.getTheme('dark')
 
@@ -10,7 +10,7 @@ G2.registerTheme('darkTheme', {
 })
 
 function useBizTheme() {
-  const theme = useStores('global').theme
+  const theme = useModel((state) => state.theme)
   const themeName = theme === 'dark' ? 'darkTheme' : 'light'
   const [themeObj, setThemeObj] = useState(G2.getTheme(themeName))
 

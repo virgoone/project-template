@@ -1,8 +1,8 @@
-import User from '@/store/user'
 import { createContext } from 'react'
+import type { UserInfo } from '@/store/rootModel'
 
 export const GlobalContext = createContext<{
   lang: string
-  user?: typeof User
+  user?: UserInfo
   setLang?: (value: string) => void
 }>({ lang: 'zh-CN' })

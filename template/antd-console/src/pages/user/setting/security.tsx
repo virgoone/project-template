@@ -1,8 +1,7 @@
 import React from 'react'
 import cs from 'clsx'
-import { observer } from 'mobx-react'
 import { Button } from 'antd'
-import useStores from '@/hooks/useStores'
+import { useModel } from '@/store'
 import useLocale from '@/hooks/useLocale'
 import locales from './locale'
 import styles from './style/index.less?modules'
@@ -10,8 +9,8 @@ import styles from './style/index.less?modules'
 function Security() {
   const locale = useLocale(locales)
 
-  const userStore = useStores('user')
-  const { info: userInfo = {} } = userStore
+  const store = useModel(state => state)
+  const { info: userInfo = {} } = store
 
   const data = [
     {
@@ -64,4 +63,4 @@ function Security() {
   )
 }
 
-export default observer(Security)
+export default Security

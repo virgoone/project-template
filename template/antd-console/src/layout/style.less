@@ -47,7 +47,7 @@
     background-color: var(--color-border);
   }
 
-  > :global(.ant-layout-sider-children) {
+  > :global(.lark-layout-sider-children) {
     overflow-y: hidden;
   }
 
@@ -72,7 +72,7 @@
   }
 }
 
-:global(.ant-layout) {
+:global(.lark-layout) {
   .layout-sider {
     position: fixed;
     background: var(--color-menu-light-bg);
@@ -81,7 +81,7 @@
     left: 0;
     z-index: 99;
 
-    :global(.ant-menu) {
+    :global(.lark-menu) {
       background: var(--color-menu-light-bg);
     }
   }
@@ -91,8 +91,8 @@
   overflow: auto;
   height: 100%;
 
-  :global(.ant-menu-item-inner > a::after),
-  :global(.ant-menu-item > a::after) {
+  :global(.lark-menu-item-inner > a::after),
+  :global(.lark-menu-item > a::after) {
     content: '';
     display: block;
     position: absolute;
@@ -104,7 +104,7 @@
     bottom: 0;
   }
 
-  :global(.ant-menu-inline-header) {
+  :global(.lark-menu-inline-header) {
     font-weight: 500;
   }
 }

@@ -1,24 +1,24 @@
-import React, { useState, useRef, useMemo, useEffect } from 'react'
-import { Breadcrumb, Layout, Menu, type MenuProps } from 'antd'
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
-import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom'
-import { observer } from 'mobx-react'
-import qs from 'query-string'
-import NProgress from 'nprogress'
-
-import useStores from '@/hooks/useStores'
 import Welcome from '@/pages/welcome'
+import { useModel } from '@/store'
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import { Breadcrumb, Layout, Menu, type MenuProps } from 'antd'
+import NProgress from 'nprogress'
+import qs from 'query-string'
 
-import { routes, defaultRoute, RouteConfig } from '../routes'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+
+import Footer from '../components/footer'
+import lazyload from '../components/lazyload'
+import Navbar from '../components/navbar'
+
 import useLocale from '../hooks/useLocale'
+import { defaultRoute, routes } from '../routes'
 import { getUrlParams } from '../utils/url'
 
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
-
-import lazyload from '../components/lazyload'
-
 import styles from './style.less?modules'
+
+import type { RouteConfig } from '../routes'
 
 const Sider = Layout.Sider
 const Content = Layout.Content
@@ -51,7 +51,7 @@ function PageLayout() {
   const paths = (currentComponent || defaultRoute).split('/')
   const [openKeys, setOpenKeys] = useState(paths.slice(0, paths.length - 1))
   const locale = useLocale()
-  const store = useStores('global')
+  const store = useModel((state) => state)
   const { settings } = store
 
   const [breadcrumb, setBreadCrumb] = useState<string[] | React.ReactNode[]>([])
@@ -70,8 +70,8 @@ function PageLayout() {
   const flattenRoutes = useMemo(() => getFlattenRoutes() || [], [])
   const rootSubmenuKeys = routes.map((item) => item.key)
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1)
-    if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
+    const latestOpenKey = keys.find((key) => !openKeys.includes(key))
+    if (!rootSubmenuKeys.includes(latestOpenKey!)) {
       setOpenKeys(keys)
     } else {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : [])
@@ -84,7 +84,7 @@ function PageLayout() {
       level: number,
       parentNode: any[] = []
     ): any {
-      return _routes.map((route) => {
+      return _routes.filter((route) => !route.hideMenu).map((route) => {
         const { breadcrumb = true } = route
 
         const iconDom = route.icon || <div className={styles['icon-empty']} />
@@ -223,13 +223,8 @@ function PageLayout() {
                       typeof node === 'string' ? locale[node] || node : node,
                     key: `${node}-${index}`,
                   }))}
-                >
-                  {/* {breadcrumb.map((node, index) => (
-                    <Breadcrumb.Item key={index}>
-                      {typeof node === 'string' ? locale[node] || node : node}
-                    </Breadcrumb.Item>
-                  ))} */}
-                </Breadcrumb>
+                />
+
               </div>
             )}
             <Content>
@@ -254,4 +249,4 @@ function PageLayout() {
   )
 }
 
-export default observer(PageLayout)
+export default PageLayout

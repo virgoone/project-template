@@ -4,8 +4,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import Link from '@/components/link'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { observer } from 'mobx-react'
-import useStores from '@/hooks/useStores'
+import { useModel } from '@/store'
 import useLocale from './locale/useLocale'
 import { defaultRoute } from '@/routes'
 import styles from './style.less?modules'
@@ -17,7 +16,7 @@ function LoginForm() {
   const [rememberPassword, setRememberPassword] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
-  const userStore = useStores('user')
+  const store = useModel(state => state)
   const locale = useLocale()
 
   // @ts-ignore
@@ -30,10 +29,9 @@ function LoginForm() {
     } else {
       localStorage.removeItem('loginParams')
     }
+    store.setToken(token)
     // 记录登录状态
-    localStorage.setItem('@token', token)
-    userStore.getUserInfo()
-    userStore.isLogin = true
+    store.setUserInfo()
     // 跳转首页
     navigate(from)
   }
@@ -75,12 +73,12 @@ function LoginForm() {
   }, [])
 
   useEffect(() => {
-    if (userStore.isLogin) {
+    if (store.isLogin) {
       navigate(from, {
         replace: true,
       })
     }
-  }, [from, userStore.isLogin])
+  }, [from, store.isLogin])
 
   return (
     <div className={styles['login-form-wrapper']}>
@@ -144,4 +142,4 @@ function LoginForm() {
     </div>
   )
 }
-export default observer(LoginForm)
+export default LoginForm
